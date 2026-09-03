@@ -1,7 +1,7 @@
 // Formspree endpoints. Replace the REPLACE_ME ids with the form ids from formspree.io (Form → Integration → endpoint URL).
 // While an endpoint still says REPLACE_ME, submissions fail gracefully and the user sees the call-us fallback.
-export const FORMSPREE_CONTACT_ENDPOINT = 'https://formspree.io/f/REPLACE_ME_CONTACT';
-export const FORMSPREE_SUBSCRIBE_ENDPOINT = 'https://formspree.io/f/REPLACE_ME_SUBSCRIBE';
+export const FORMSPREE_CONTACT_ENDPOINT = 'https://formspree.io/f/myeyjdpk';
+export const FORMSPREE_SUBSCRIBE_ENDPOINT = 'https://formspree.io/f/xoeqwnlw';
 
 export const HONEYPOT_FIELD = '_gotcha'; // Formspree's native honeypot: any value here = silently discarded as spam
 
