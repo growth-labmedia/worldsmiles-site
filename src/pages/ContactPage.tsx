@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Phone, ArrowRight, MapPin, Mail, ChevronDown, Send, Clock, Car, Train, CheckCircle2 } from 'lucide-react';
 import { usePageMeta } from '../lib/seo';
+import { FORMSPREE_CONTACT_ENDPOINT, HONEYPOT_FIELD, submitToFormspree } from '../lib/forms';
 import type React from 'react';
 
 export default function ContactPage() {
@@ -14,6 +15,7 @@ export default function ContactPage() {
     message: ''
   });
   const [formStatus, setFormStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
+  const [formError, setFormError] = useState(''); // optional validation message shown in the error box
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -28,34 +30,28 @@ export default function ContactPage() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleFormSubmit = async (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!formData.name.trim() || !formData.phone.trim()) {
+      setFormError('Please enter your name and phone number so we can reach you.');
+      setFormStatus('error');
+      return;
+    }
     setFormStatus('submitting');
-    
-    // ============================================================
-    // OPERATOR: WIRE THIS UP BEFORE LAUNCH
-    // Replace the simulated submit below with your real form service.
-    //
-    // Example with Formspree (recommended for simplicity):
-    //
-    //   const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    //     body: JSON.stringify(formData)
-    //   });
-    //   if (response.ok) {
-    //     setFormStatus('success');
-    //   } else {
-    //     setFormStatus('error');
-    //   }
-    //
-    // Alternatives: Resend (resend.com), Netlify Forms (if hosting on Netlify),
-    // Web3Forms (free), or any custom backend endpoint.
-    // ============================================================
-    
-    // Temporary simulated submit — REMOVE before launch
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    setFormStatus('success');
+    setFormError('');
+    const honeypot = (new FormData(e.currentTarget).get(HONEYPOT_FIELD) as string) || '';
+    const result = await submitToFormspree(FORMSPREE_CONTACT_ENDPOINT, {
+      ...formData,
+      [HONEYPOT_FIELD]: honeypot,
+      _subject: 'New website inquiry — worldsmilesnyc.com',
+    });
+    if (result.ok) {
+      setFormStatus('success');
+    } else {
+      console.error('Contact form submission failed:', result.error);
+      setFormError('');
+      setFormStatus('error');
+    }
   };
 
   return (
@@ -146,12 +142,17 @@ export default function ContactPage() {
                     <div className="w-14 h-14 rounded-full bg-[#C9A961] flex items-center justify-center mx-auto mb-5">
                       <CheckCircle2 className="w-7 h-7 text-[#0A0A0A]" strokeWidth={2} />
                     </div>
-                    <h3 className="font-[Fraunces,Georgia,serif] text-[1.5rem] font-medium text-[#0A0A0A] mb-3">Got it. Thank you.</h3>
-                    <p className="text-[1rem] text-[#1B1B1B] leading-[1.6] max-w-[42ch] mx-auto">We'll be in touch within 1 business hour during office hours (Mon, Wed, Fri 10am–5pm). If you sent this outside of those hours, we'll reach out first thing the next open day.</p>
+                    <h3 className="font-[Fraunces,Georgia,serif] text-[1.5rem] font-medium text-[#0A0A0A] mb-3">Thank you.</h3>
+                    <p className="text-[1rem] text-[#1B1B1B] leading-[1.6] max-w-[42ch] mx-auto" role="status">We've received your message and will get back to you within one business day.</p>
                     <p className="text-[0.875rem] text-[#5C5C5C] mt-5">Need to reach us sooner? Call <a href="tel:+13473787827" aria-label="Call World Smiles Prosthodontics at 347-378-7827" className="inline-flex items-center min-h-[48px] min-w-[48px] justify-center px-1 font-semibold text-[#C9A961] hover:text-[#A8893F]">347-378-7827</a>.</p>
                   </div>
                 ) : (
                   <form onSubmit={handleFormSubmit} className="space-y-5" noValidate>
+                    {/* Honeypot: Formspree silently rejects any submission where this field has a value */}
+                    <div className="hidden" aria-hidden="true">
+                      <label htmlFor="contact-gotcha">Leave this field empty</label>
+                      <input id="contact-gotcha" type="text" name="_gotcha" tabIndex={-1} autoComplete="off" />
+                    </div>
                     <div className="space-y-5">
                       <div className="space-y-2">
                         <label htmlFor="name" className="block text-[0.875rem] font-medium text-[#1B1B1B] mb-1.5">
@@ -255,8 +256,8 @@ export default function ContactPage() {
                     </div>
 
                     {formStatus === 'error' && (
-                      <div className="mt-5 bg-[#A23B3B]/10 border border-[#A23B3B]/30 rounded-lg p-4 text-[0.9375rem] text-[#A23B3B]">
-                        Something went wrong sending your message. Please try again, or call us directly at <a href="tel:+13473787827" aria-label="Call World Smiles Prosthodontics at 347-378-7827" className="inline-flex items-center min-h-[48px] min-w-[48px] justify-center px-1 font-semibold underline">347-378-7827</a>.
+                      <div className="mt-5 bg-[#A23B3B]/10 border border-[#A23B3B]/30 rounded-lg p-4 text-[0.9375rem] text-[#A23B3B]" role="alert">
+                        {formError || "Something went wrong and your message wasn't sent."} If you're having trouble, please call us at <a href="tel:+13473787827" aria-label="Call World Smiles Prosthodontics at 347-378-7827" className="inline-flex items-center min-h-[48px] min-w-[48px] justify-center px-1 font-semibold underline">347-378-7827</a>.
                       </div>
                     )}
                   </form>

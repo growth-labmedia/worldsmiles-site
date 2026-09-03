@@ -74,7 +74,7 @@ export default function Header() {
                     <Link to="/insurance" onClick={closeMenus} className={`block px-4 py-3 text-[0.9375rem] transition-colors border-b border-[#1B1B1B] ${currentPath === '/insurance' ? 'text-[#C9A961] bg-[#1B1B1B]' : 'text-white hover:text-[#C9A961] hover:bg-[#1B1B1B]'}`}>Insurance</Link>
                     <Link to="/technology" onClick={closeMenus} className={`block px-4 py-3 text-[0.9375rem] transition-colors border-b border-[#1B1B1B] ${currentPath === '/technology' ? 'text-[#C9A961] bg-[#1B1B1B]' : 'text-white hover:text-[#C9A961] hover:bg-[#1B1B1B]'}`}>Technology</Link>
                     <Link to="/faq" onClick={closeMenus} className={`block px-4 py-3 text-[0.9375rem] transition-colors border-b border-[#1B1B1B] ${currentPath === '/faq' ? 'text-[#C9A961] bg-[#1B1B1B]' : 'text-white hover:text-[#C9A961] hover:bg-[#1B1B1B]'}`}>FAQ</Link>
-                    <Link to="/blog" onClick={closeMenus} className={`block px-4 py-3 text-[0.9375rem] transition-colors ${currentPath === '/blog' ? 'text-[#C9A961] bg-[#1B1B1B]' : 'text-white hover:text-[#C9A961] hover:bg-[#1B1B1B]'}`}>Blog</Link>
+                    <Link to="/blog" onClick={closeMenus} className={`block px-4 py-3 text-[0.9375rem] transition-colors ${currentPath === '/blog' ? 'text-[#C9A961] bg-[#1B1B1B]' : 'text-white hover:text-[#C9A961] hover:bg-[#1B1B1B]'}`}>Journal</Link>
                   </div>
                 </div>
               )}
@@ -138,7 +138,7 @@ export default function Header() {
                 <Link to="/insurance" onClick={closeMenus} className={`block py-2 text-[1rem] ${currentPath === '/insurance' ? 'text-[#C9A961] font-semibold' : 'text-white'}`}>Insurance</Link>
                 <Link to="/technology" onClick={closeMenus} className={`block py-2 text-[1rem] ${currentPath === '/technology' ? 'text-[#C9A961] font-semibold' : 'text-white'}`}>Technology</Link>
                 <Link to="/faq" onClick={closeMenus} className={`block py-2 text-[1rem] ${currentPath === '/faq' ? 'text-[#C9A961] font-semibold' : 'text-white'}`}>FAQ</Link>
-                <Link to="/blog" onClick={closeMenus} className={`block py-2 text-[1rem] ${currentPath === '/blog' ? 'text-[#C9A961] font-semibold' : 'text-white'}`}>Blog</Link>
+                <Link to="/blog" onClick={closeMenus} className={`block py-2 text-[1rem] ${currentPath === '/blog' ? 'text-[#C9A961] font-semibold' : 'text-white'}`}>Journal</Link>
               </div>
 
               <Link to="/before-after" onClick={closeMenus} className={`py-3 text-[1.125rem] font-medium border-b border-[#2A2A2A] ${currentPath === '/before-after' ? 'text-[#C9A961]' : 'text-white'}`}>Before & After</Link>
