@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-serif: "Fraunces", Georgia, serif;
+
+  /* Landing page tokens (from world-smiles-nyc-landing-page) */
+  --color-pract-black: #0A0A0A;
+  --color-pract-gold: #C9A961;
+  --color-pract-gold-hover: #b89a55;
+  --color-pract-cream: #FAF8F3;
+  --color-pract-charcoal: #1F1F1F;
+  --color-pract-sage: #A8B5A0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
