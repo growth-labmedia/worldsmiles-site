@@ -40,16 +40,16 @@ export default function Header() {
             <img
               src={logoUrl}
               alt="World Smiles Prosthodontics"
-              className="h-10 md:h-12 w-auto"
+              className="h-8 sm:h-10 md:h-12 xl:h-10 w-auto"
               width="330"
               height="48"
             />
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-5 xl:gap-6 lg:ml-8 xl:ml-12" aria-label="Primary">
-            <Link to="/" className={`text-[0.9375rem] font-medium transition-colors whitespace-nowrap ${currentPath === '/' ? 'text-[#C9A961]' : 'text-white hover:text-[#C9A961]'}`}>Home</Link>
-            <Link to="/services" className={`text-[0.9375rem] font-medium transition-colors whitespace-nowrap ${currentPath === '/services' ? 'text-[#C9A961]' : 'text-white hover:text-[#C9A961]'}`}>Services</Link>
-            <Link to="/about" className={`text-[0.9375rem] font-medium transition-colors whitespace-nowrap ${currentPath === '/about' ? 'text-[#C9A961]' : 'text-white hover:text-[#C9A961]'}`}>About</Link>
+          <nav className="hidden xl:flex items-center gap-4 ml-8" aria-label="Primary">
+            <Link to="/" className={`text-[0.875rem] font-medium transition-colors whitespace-nowrap ${currentPath === '/' ? 'text-[#C9A961]' : 'text-white hover:text-[#C9A961]'}`}>Home</Link>
+            <Link to="/services" className={`text-[0.875rem] font-medium transition-colors whitespace-nowrap ${currentPath === '/services' ? 'text-[#C9A961]' : 'text-white hover:text-[#C9A961]'}`}>Services</Link>
+            <Link to="/about" className={`text-[0.875rem] font-medium transition-colors whitespace-nowrap ${currentPath === '/about' ? 'text-[#C9A961]' : 'text-white hover:text-[#C9A961]'}`}>About</Link>
 
             <div
               className="relative"
@@ -61,7 +61,7 @@ export default function Header() {
                 aria-expanded={patientResourcesOpen}
                 aria-haspopup="true"
                 onClick={() => setPatientResourcesOpen(!patientResourcesOpen)}
-                className={`flex items-center gap-1 text-[0.9375rem] font-medium transition-colors whitespace-nowrap ${isPatientResourcesActive ? 'text-[#C9A961]' : 'text-white hover:text-[#C9A961]'}`}
+                className={`flex items-center gap-1 text-[0.875rem] font-medium transition-colors whitespace-nowrap ${isPatientResourcesActive ? 'text-[#C9A961]' : 'text-white hover:text-[#C9A961]'}`}
               >
                 Patient Resources
                 <ChevronDown className={`w-4 h-4 transition-transform ${patientResourcesOpen ? 'rotate-180' : ''}`} strokeWidth={2} />
@@ -80,25 +80,25 @@ export default function Header() {
               )}
             </div>
 
-            <Link to="/before-after" className={`text-[0.9375rem] font-medium transition-colors whitespace-nowrap ${currentPath === '/before-after' ? 'text-[#C9A961]' : 'text-white hover:text-[#C9A961]'}`}>Before & After</Link>
-            <Link to="/reviews" className={`text-[0.9375rem] font-medium transition-colors whitespace-nowrap ${currentPath === '/reviews' ? 'text-[#C9A961]' : 'text-white hover:text-[#C9A961]'}`}>Reviews</Link>
-            <Link to="/second-opinion" className={`text-[0.9375rem] font-medium transition-colors whitespace-nowrap ${currentPath === '/second-opinion' ? 'text-[#C9A961]' : 'text-white hover:text-[#C9A961]'}`}>Second Opinion</Link>
-            <Link to="/contact" className={`text-[0.9375rem] font-medium transition-colors whitespace-nowrap ${currentPath === '/contact' ? 'text-[#C9A961]' : 'text-white hover:text-[#C9A961]'}`}>Contact</Link>
+            <Link to="/before-after" className={`text-[0.875rem] font-medium transition-colors whitespace-nowrap ${currentPath === '/before-after' ? 'text-[#C9A961]' : 'text-white hover:text-[#C9A961]'}`}>Before & After</Link>
+            <Link to="/reviews" className={`text-[0.875rem] font-medium transition-colors whitespace-nowrap ${currentPath === '/reviews' ? 'text-[#C9A961]' : 'text-white hover:text-[#C9A961]'}`}>Reviews</Link>
+            <Link to="/second-opinion" className={`text-[0.875rem] font-medium transition-colors whitespace-nowrap ${currentPath === '/second-opinion' ? 'text-[#C9A961]' : 'text-white hover:text-[#C9A961]'}`}>Second Opinion</Link>
+            <Link to="/contact" className={`text-[0.875rem] font-medium transition-colors whitespace-nowrap ${currentPath === '/contact' ? 'text-[#C9A961]' : 'text-white hover:text-[#C9A961]'}`}>Contact</Link>
           </nav>
 
-          <div className="hidden md:flex items-center gap-3 lg:gap-4 xl:gap-5 ml-auto">
-            <div className="hidden lg:block w-px h-6 bg-[#2A2A2A]" aria-hidden="true" />
-            <a href="tel:+13473787827" aria-label="Call World Smiles Prosthodontics at 347-378-7827" className="inline-flex items-center gap-2 text-[#C9A961] hover:text-[#DBC089] text-[0.9375rem] font-semibold transition-colors whitespace-nowrap min-h-[48px] min-w-[48px]">
+          <div className="hidden md:flex items-center gap-3 lg:gap-4 ml-auto">
+            {/* Phone shows in the header from md up to xl; at xl+ the desktop nav needs the room (phone is in every hero, CTA, and the footer) */}
+            <a href="tel:+13473787827" aria-label="Call World Smiles Prosthodontics at 347-378-7827" className="inline-flex xl:hidden items-center justify-center gap-2 text-[#C9A961] hover:text-[#DBC089] text-[0.9375rem] font-semibold transition-colors whitespace-nowrap min-h-[48px] min-w-[48px]">
               <Phone className="w-4 h-4 pointer-events-none" strokeWidth={2} />
-              <span className="hidden xl:inline pointer-events-none">347-378-7827</span>
+              <span className="hidden lg:inline pointer-events-none">347-378-7827</span>
             </a>
             <Link to="/contact" className="inline-flex items-center justify-center bg-[#C9A961] hover:bg-[#A8893F] text-[#0A0A0A] px-5 py-2.5 rounded-lg text-[0.9375rem] font-semibold transition-colors whitespace-nowrap">
               Book Consultation
             </Link>
           </div>
 
-          <div className="flex md:hidden items-center gap-1 ml-auto">
-            <a href="tel:+13473787827" aria-label="Call World Smiles Prosthodontics at 347-378-7827" className="flex items-center justify-center text-[#C9A961] min-h-[48px] min-w-[48px]">
+          <div className="flex xl:hidden items-center gap-1 ml-auto md:ml-2">
+            <a href="tel:+13473787827" aria-label="Call World Smiles Prosthodontics at 347-378-7827" className="flex md:hidden items-center justify-center text-[#C9A961] min-h-[48px] min-w-[48px]">
               <Phone className="w-5 h-5 pointer-events-none" strokeWidth={2} />
             </a>
             <button
@@ -113,7 +113,7 @@ export default function Header() {
         </div>
 
         {mobileMenuOpen && (
-          <div className="fixed inset-0 z-50 bg-[#0A0A0A] lg:hidden flex flex-col">
+          <div className="fixed inset-0 z-50 bg-[#0A0A0A] xl:hidden flex flex-col">
             <div className="flex items-center justify-between h-16 px-4 border-b border-[#2A2A2A]">
               <img
                 src={logoUrl}
