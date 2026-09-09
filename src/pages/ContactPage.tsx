@@ -181,7 +181,7 @@ export default function ContactPage() {
                           type="tel" 
                           required 
                           autoComplete="tel" 
-                          placeholder="347-555-0123" 
+                          placeholder="Phone number" 
                           value={formData.phone} 
                           onChange={handleFormChange}
                           className="w-full px-4 py-3 bg-white border border-[#E7E2D8] rounded-lg text-[1rem] text-[#1B1B1B] placeholder:text-[#5C5C5C] focus:outline-none focus:border-[#0A0A0A] focus:ring-2 focus:ring-[#C9A961]/40 transition"

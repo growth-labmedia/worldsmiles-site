@@ -129,7 +129,7 @@ export default function Header() {
             <nav className="flex flex-col p-6 gap-1 overflow-y-auto" aria-label="Mobile">
               <Link to="/" onClick={closeMenus} className={`py-3 text-[1.125rem] font-medium border-b border-[#2A2A2A] ${currentPath === '/' ? 'text-[#C9A961]' : 'text-white'}`}>Home</Link>
               <Link to="/services" onClick={closeMenus} className={`py-3 text-[1.125rem] font-medium border-b border-[#2A2A2A] ${currentPath === '/services' ? 'text-[#C9A961]' : 'text-white'}`}>Services</Link>
-              <Link to="/about" onClick={closeMenus} className={`py-3 text-[1.125rem] font-medium border-b border-[#2A2A2A] ${currentPath === '/about' ? 'text-[#C9A961]' : 'text-white'}`}>About Dr. Furman</Link>
+              <Link to="/about" onClick={closeMenus} className={`py-3 text-[1.125rem] font-medium border-b border-[#2A2A2A] ${currentPath === '/about' ? 'text-[#C9A961]' : 'text-white'}`}>About Our Specialists</Link>
 
               <div className="py-3 border-b border-[#2A2A2A]">
                 <p className={`text-[0.75rem] uppercase tracking-[0.14em] font-semibold mb-2 ${isPatientResourcesActive ? 'text-[#DBC089]' : 'text-[#C9A961]'}`}>Patient Resources</p>
