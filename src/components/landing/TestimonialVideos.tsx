@@ -38,18 +38,20 @@ export default function TestimonialVideos({ locale }: { locale: Locale }) {
   return (
     <section className="py-20 px-4 md:px-8 bg-white border-t border-pract-sage/20">
       <div className="max-w-6xl mx-auto">
+        <span className="block text-center text-pract-gold font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3">{t(testimonialsCopy.eyebrow, locale)}</span>
         <h2 className="text-center font-serif text-3xl md:text-4xl font-semibold mb-3 text-pract-charcoal">{t(testimonialsCopy.title, locale)}</h2>
-        <p className="text-center text-sm md:text-base text-pract-charcoal/70 mb-10">{t(testimonialsCopy.subtitle, locale)}</p>
+        <p className="text-center text-sm md:text-base text-pract-charcoal/70 max-w-xl mx-auto mb-10">{t(testimonialsCopy.subtitle, locale)}</p>
 
-        {/* Mobile: horizontal snap rail, one video per screen. Desktop: up to 3 side by side, capped at ~580px tall. */}
-        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-3 md:overflow-visible md:justify-items-center [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        {/* Mobile: horizontal snap rail, one full-width slide per video with the 9:16 card centered inside it.
+            Desktop: cards side by side (max 3 across), centered as a group, capped at ~580px tall. */}
+        <div className="flex gap-0 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none pb-2 md:justify-center [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {testimonials.map((v, i) => (
             <div
               key={v.id}
               ref={(el) => { itemRefs.current[i] = el; }}
-              className="snap-center shrink-0 w-[82vw] max-w-[326px] md:w-full md:max-w-[326px]"
+              className="snap-center shrink-0 w-full md:w-[326px] flex flex-col items-center"
             >
-              <div className="relative w-full rounded-2xl overflow-hidden bg-pract-black shadow-lg border-4 border-white" style={{ aspectRatio: '9 / 16' }}>
+              <div className="relative w-full max-w-[320px] md:max-w-none rounded-2xl overflow-hidden bg-pract-black shadow-lg border border-pract-sage/30" style={{ aspectRatio: '9 / 16' }}>
                 {active === i ? (
                   <>
                     <iframe
@@ -86,6 +88,9 @@ export default function TestimonialVideos({ locale }: { locale: Locale }) {
                   </button>
                 )}
               </div>
+              {v.pullQuote && (
+                <p className="mt-3 max-w-[320px] text-center font-serif italic text-base text-pract-charcoal/85 leading-snug">“{t(v.pullQuote, locale)}”</p>
+              )}
             </div>
           ))}
         </div>

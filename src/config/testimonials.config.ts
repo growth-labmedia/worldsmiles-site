@@ -22,6 +22,12 @@ export interface Testimonial {
   primaryLanguage: Locale;
   /** Accessible name for the play button, e.g. "Patient testimonial 1". No names. */
   ariaLabel: Text;
+  /**
+   * Optional pull quote shown under the video: one VERBATIM line the patient says on camera
+   * (their words, their grammar — never paraphrased). Research: a headline or pull quote per
+   * testimonial is what visitors read first. Leave out until the exact line is confirmed.
+   */
+  pullQuote?: Text;
 }
 
 export const testimonials: readonly Testimonial[] = [
@@ -32,12 +38,22 @@ export const testimonials: readonly Testimonial[] = [
     poster: 'https://vz-c10705d0-04c.b-cdn.net/d5b403c3-17a0-49a6-a43c-8bdec0507655/thumbnail.jpg',
     primaryLanguage: 'en', // TODO confirm: which language is burned in?
     ariaLabel: { en: 'Patient testimonial 1', ru: 'Отзыв пациента 1' },
+    // pullQuote: PENDING — needs the exact line from the video, verbatim.
   },
 ];
 
+/**
+ * Section copy. Source: ICP brief, messaging hierarchy level 4 ("Real patients, in their own
+ * words — including the ones who arrived after two or three other dentists"). The subtitle is
+ * [PARAPHRASE] per brief directive d02 — not verbatim patient language.
+ */
 export const testimonialsCopy = {
-  title: { en: 'In their own words', ru: 'Их собственными словами' },
-  subtitle: { en: 'Tap to play with sound. Captions in English and Russian.', ru: 'Нажмите, чтобы включить со звуком. Субтитры на русском и английском.' },
+  eyebrow: { en: 'REAL PATIENTS, REAL WORK', ru: 'НАСТОЯЩИЕ ПАЦИЕНТЫ, НАСТОЯЩАЯ РАБОТА' },
+  title: { en: 'Real patients, in their own words.', ru: 'Настоящие пациенты — своими словами.' },
+  subtitle: {
+    en: 'Including the ones who arrived after two or three other dentists. Tap to hear what they\'d tell you. Captions in English and Russian.',
+    ru: 'В том числе те, кто пришёл после двух-трёх других стоматологов. Нажмите, чтобы услышать, что они бы вам сказали. Субтитры на русском и английском.',
+  },
   play: { en: 'Play', ru: 'Смотреть' },
   close: { en: 'Close video', ru: 'Закрыть видео' },
 } as const;
