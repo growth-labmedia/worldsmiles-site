@@ -5,15 +5,25 @@ import { Phone, CheckCircle, ChevronDown, ChevronUp, Star, Calendar } from 'luci
 import { translations } from '../lib/translations';
 import { usePageMeta } from '../lib/seo';
 import logoUrl from '../logo.png';
-import ba1 from '../assets/landing/before-and-after-1.jpeg';
-import ba2 from '../assets/landing/before-and-after-2.jpeg';
-import ba3 from '../assets/landing/before-and-after-3.jpeg';
+import QualificationFlow from '../components/landing/QualificationFlow';
+import CaseResultCards from '../components/landing/CaseResultCards';
+import TestimonialVideos from '../components/landing/TestimonialVideos';
+import GhlCalendar from '../components/landing/GhlCalendar';
+import { insuranceOverrides } from '../config/landingInsurance.config';
+import { qualificationConfig, t as tx } from '../config/qualification.config';
 import consultRoom from '../assets/landing/consult-room.jpg';
 import scan3d from '../assets/landing/3d-scan.jpg';
 import sittingArea from '../assets/landing/sitting-area.jpg';
 
-export default function LandingPage() {
-  usePageMeta('LandingPage');
+type LandingVariant = 'selfpay' | 'insurance';
+
+/**
+ * Paid-traffic landing page. `variant="insurance"` (served at /landing/insurance) swaps the
+ * offer framing via config/landingInsurance.config.ts and renders the in-network calendar
+ * directly in place of the qualification flow. Everything else is shared.
+ */
+export default function LandingPage({ variant = 'selfpay' }: { variant?: LandingVariant }) {
+  usePageMeta(variant === 'insurance' ? 'LandingInsurancePage' : 'LandingPage');
   const [lang, setLang] = useState<'en' | 'ru'>('en');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -34,7 +44,7 @@ export default function LandingPage() {
     document.getElementById('book')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
-  const t = translations[lang];
+  const t = variant === 'insurance' ? { ...translations[lang], ...insuranceOverrides[lang] } : translations[lang];
 
   return (
     <div className="min-h-screen bg-pract-cream text-pract-charcoal font-sans selection:bg-pract-gold selection:text-white">
@@ -109,7 +119,17 @@ export default function LandingPage() {
           </div>
           
           <div className="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 w-full mt-2 lg:mt-0">
-             <CalendarEmbed />
+             {variant === 'insurance' ? (
+               <div id="book" className="scroll-mt-24">
+                 <GhlCalendar
+                   calendarId={qualificationConfig.calendars.insurance.calendarId}
+                   embedId={qualificationConfig.calendars.insurance.embedId}
+                   title={tx(qualificationConfig.calendars.insurance.title, lang)}
+                 />
+               </div>
+             ) : (
+               <QualificationFlow locale={lang} />
+             )}
           </div>
           
           <div className="order-3 lg:col-start-1 lg:row-start-2 flex flex-col items-start text-left w-full lg:mt-2">
@@ -191,26 +211,11 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* 4. SOCIAL PROOF — BEFORE & AFTER GALLERY */}
-      <section className="py-20 px-4 md:px-8 bg-pract-cream border-t border-pract-sage/20">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-center font-serif text-3xl md:text-4xl font-semibold mb-12 text-pract-charcoal">
-            {t.proof_title}
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-             <div className="w-full aspect-[2/3] bg-pract-black rounded-2xl overflow-hidden relative shadow-lg border-4 border-white group">
-                <img src={ba1} alt="Before and after case 1" className="w-full h-full object-cover opacity-95 group-hover:opacity-100 transition-opacity duration-300" />
-             </div>
-             <div className="w-full aspect-[2/3] bg-pract-black rounded-2xl overflow-hidden relative shadow-lg border-4 border-white group">
-                <img src={ba2} alt="Before and after case 2" className="w-full h-full object-cover opacity-95 group-hover:opacity-100 transition-opacity duration-300" />
-             </div>
-             <div className="w-full aspect-[2/3] bg-pract-black rounded-2xl overflow-hidden relative shadow-lg border-4 border-white group">
-                <img src={ba3} alt="Before and after case 3" className="w-full h-full object-cover opacity-95 group-hover:opacity-100 transition-opacity duration-300" />
-             </div>
-          </div>
-        </div>
-      </section>
+      {/* 4. SOCIAL PROOF — CASE RESULT CARDS (config/cases.config.ts; SHOW_CASE_RESULTS kill switch) */}
+      <CaseResultCards locale={lang} />
+
+      {/* 4b. PATIENT TESTIMONIAL VIDEOS (config/testimonials.config.ts; renders nothing until videos are added) */}
+      <TestimonialVideos locale={lang} />
 
       {/* 5. THE PROSTHODONTIST DIFFERENCE */}
       <section className="py-24 px-4 md:px-8 bg-pract-black text-white relative">
@@ -398,31 +403,6 @@ export default function LandingPage() {
           <Phone size={24} />
         </a>
       </div>
-    </div>
-  );
-}
-
-function CalendarEmbed() {
-  useEffect(() => {
-    // Avoid double-loading if component remounts
-    if (document.querySelector('script[src="https://link.msgsndr.com/js/form_embed.js"]')) return;
-    const script = document.createElement("script");
-    script.src = "https://link.msgsndr.com/js/form_embed.js";
-    script.type = "text/javascript";
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
-
-  return (
-    <div id="book" className="w-full bg-[#fdfaf5] lg:bg-transparent rounded-xl shadow-lg lg:shadow-none p-4 lg:p-0">
-      <iframe
-        src="https://api.leadconnectorhq.com/widget/booking/33Quy7HPPEQrOVqjIdEh"
-        style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "720px" }}
-        scrolling="no"
-        id="33Quy7HPPEQrOVqjIdEh_1780330783331"
-        title="Book My $147 Specialist Session"
-        aria-label="Booking calendar"
-      />
     </div>
   );
 }

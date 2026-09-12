@@ -33,7 +33,7 @@ export default function QualificationFlow({ locale }: QualificationFlowProps) {
   // View state only. Never persisted anywhere. See invariants above.
   const [pendingRoute, setPendingRoute] = useState<Exclude<Route, 'disqualify'> | null>(null);
   const [lead, setLead] = useState({ firstName: '', lastName: '', phone: '', email: '' });
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'error'>('idle');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'error' | 'invalid'>('idle');
   const rootRef = useRef<HTMLDivElement>(null);
 
   // ---- analytics: step viewed / completed / abandoned, time-on-step ----
@@ -88,7 +88,7 @@ export default function QualificationFlow({ locale }: QualificationFlowProps) {
   const submitContact = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!lead.firstName.trim() || !lead.lastName.trim() || !lead.phone.trim()) {
-      setStatus('error');
+      setStatus('invalid');
       return;
     }
     setStatus('submitting');
@@ -225,6 +225,11 @@ export default function QualificationFlow({ locale }: QualificationFlowProps) {
               {status === 'submitting' ? t(cfg.contact.submitting, locale) : t(cfg.contact.submit, locale)}
             </button>
             <p className="text-xs text-pract-charcoal/60 text-center">{t(cfg.contact.privacyNote, locale)}</p>
+            {status === 'invalid' && (
+              <div role="alert" className="bg-[#A23B3B]/10 border border-[#A23B3B]/30 rounded-lg p-4 text-sm text-[#A23B3B]">
+                {t(cfg.contact.validation, locale)}
+              </div>
+            )}
             {status === 'error' && (
               <div role="alert" className="bg-[#A23B3B]/10 border border-[#A23B3B]/30 rounded-lg p-4 text-sm text-[#A23B3B]">
                 {t(cfg.contact.error, locale).replace('347-378-7827', '')}

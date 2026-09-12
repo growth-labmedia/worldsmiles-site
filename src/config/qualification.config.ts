@@ -8,8 +8,7 @@
  *
  * Editing rules:
  *  - Every visible string is a `Text` = { en, ru }. Leave `ru` out and the build fails.
- *  - Option `id`s are stable identifiers for analytics step tracking and the
- *    front-desk tag ONLY. They are never sent as event parameters (see §7 of the brief).
+ *  - Option `id`s are stable React keys only. They are never sent anywhere (see §7 of the brief).
  *  - Q2 (carrier) answers are view state only. Nothing here or in the components
  *    writes them to a URL, form field, webhook, pixel, or analytics payload.
  */
@@ -27,17 +26,12 @@ export type Text = Readonly<Record<Locale, string>>;
 export type Route = 'insurance' | 'selfpay' | 'disqualify';
 
 export interface AnswerOption<R extends Route | 'continue' = Route | 'continue'> {
-  /** Stable id. Used for the front-desk tag and nothing else. Never an analytics value. */
+  /** Stable id. React key only. Never transmitted. */
   id: string;
   /** What the patient sees. */
   label: Text;
   /** What tapping it does. `continue` = advance to the next question. */
   route: R;
-  /**
-   * Optional tag passed to the front desk with the booking (e.g. shown in the GHL
-   * appointment note) so they know what the patient came in for. Q1 only.
-   */
-  frontDeskTag?: string;
 }
 
 export interface Question<R extends Route | 'continue'> {
@@ -61,6 +55,8 @@ export interface ContactStep {
   privacyNote: Text;
   submit: Text;
   submitting: Text;
+  /** Shown when name or phone is empty. */
+  validation: Text;
   /** Shown when the submit fails; includes the phone-number fallback. */
   error: Text;
 }
@@ -126,7 +122,6 @@ const q1 = {
       id: 'implants',
       label: { en: 'Dental implants', ru: 'Зубные импланты' },
       route: 'continue',
-      frontDeskTag: 'Implants',
     },
     {
       id: 'crowns_bridges',
@@ -135,30 +130,26 @@ const q1 = {
         ru: 'Коронки, мосты или починка уже сделанной работы',
       },
       route: 'continue',
-      frontDeskTag: 'Crowns / bridges / repair',
     },
     {
       id: 'full_mouth',
       label: { en: 'Full-mouth restoration', ru: 'Полное восстановление зубов' },
       route: 'continue',
-      frontDeskTag: 'Full-mouth restoration',
     },
     {
       id: 'veneers',
       label: { en: 'Veneers / cosmetic', ru: 'Виниры / эстетика' },
       route: 'continue',
-      frontDeskTag: 'Veneers / cosmetic',
     },
     {
-      // Highest-value option: mirrors the hero headline and identifies the exact ICP.
-      // Wording is locked. The frontDeskTag is what the front desk sees on the calendar.
+      // Highest-value option: mirrors the hero headline and identifies the exact ICP. Wording is locked.
+      // The office is notified by GHL workflows; no answer value leaves the browser.
       id: 'second_opinion',
       label: {
         en: 'A second opinion on a plan I already have',
         ru: 'Второе мнение по плану, который у меня уже есть',
       },
       route: 'continue',
-      frontDeskTag: 'SECOND OPINION — has existing plan',
     },
     {
       id: 'not_sure',
@@ -167,7 +158,6 @@ const q1 = {
         ru: 'Пока не знаю — хочу услышать мнение специалиста',
       },
       route: 'continue',
-      frontDeskTag: 'Not sure — wants specialist read',
     },
     {
       id: 'cleaning',
@@ -237,6 +227,10 @@ const contact = {
   },
   submit: { en: 'Continue to the calendar', ru: 'Перейти к календарю' },
   submitting: { en: 'One moment…', ru: 'Секунду…' },
+  validation: {
+    en: 'Please enter your first name, last name, and phone number so we can reach you.',
+    ru: 'Пожалуйста, укажите имя, фамилию и номер телефона, чтобы мы могли с вами связаться.',
+  },
   error: {
     en: "Something went wrong and we couldn't save that. If you're having trouble, please call us at 347-378-7827.",
     ru: 'Что-то пошло не так, и мы не смогли это сохранить. Если возникли трудности, позвоните нам: 347-378-7827.',
