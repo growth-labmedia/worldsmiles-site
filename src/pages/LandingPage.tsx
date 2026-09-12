@@ -1,6 +1,5 @@
 import type React from 'react';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { Phone, CheckCircle, ChevronDown, ChevronUp, Star, Calendar } from 'lucide-react';
 import { translations } from '../lib/translations';
 import { usePageMeta } from '../lib/seo';
@@ -51,7 +50,8 @@ export default function LandingPage({ variant = 'selfpay' }: { variant?: Landing
       {/* 0. STICKY BOOKING BAR / HEADER */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-pract-black h-16 md:h-20 flex items-center shadow-md">
         <div className="w-full max-w-7xl mx-auto px-4 lg:px-8 flex items-center justify-between">
-          <Link to="/" className="shrink-0 flex items-center" aria-label="World Smiles Prosthodontics — Home">
+          {/* Logo is intentionally NOT a link: the landing page is a closed loop (no route back to the main site). */}
+          <div className="shrink-0 flex items-center">
             <img
               src={logoUrl}
               alt="World Smiles Prosthodontics"
@@ -59,7 +59,7 @@ export default function LandingPage({ variant = 'selfpay' }: { variant?: Landing
               width="330"
               height="48"
             />
-          </Link>
+          </div>
           <div className="flex items-center gap-3 md:gap-6">
             <a href="tel:+13473787827" aria-label="Call World Smiles Prosthodontics at 347-378-7827" className="hidden md:flex items-center justify-center gap-2 text-pract-gold hover:text-white transition-colors font-medium text-sm md:text-base min-h-[48px] min-w-[48px] px-2">
               <Phone size={16} /> {/* Click-to-call requirement */}
@@ -398,8 +398,8 @@ export default function LandingPage({ variant = 'selfpay' }: { variant?: Landing
           <p>{t.footer_address}</p>
           <p className="text-white/60 flex items-center justify-center gap-2 min-h-[48px]">Phone: <a href="tel:+13473787827" aria-label="Call World Smiles Prosthodontics at 347-378-7827" className="hover:text-pract-gold min-h-[48px] min-w-[48px] inline-flex items-center justify-center px-2">{t.nav_phone}</a></p>
           <div className="flex justify-center gap-6 mt-8 py-6 border-t border-white/5">
-             <Link to="/privacy" className="hover:text-pract-gold transition-colors">Privacy Policy</Link>
-             <Link to="/terms" className="hover:text-pract-gold transition-colors">Terms of Use</Link>
+             <a href="/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-pract-gold transition-colors">Privacy Policy</a>
+             <a href="/terms" target="_blank" rel="noopener noreferrer" className="hover:text-pract-gold transition-colors">Terms of Use</a>
           </div>
           <p className="mt-4 pb-12 md:pb-0">{t.footer_rights}</p>
         </div>
