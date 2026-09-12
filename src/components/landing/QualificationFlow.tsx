@@ -253,7 +253,13 @@ export default function QualificationFlow({ locale }: QualificationFlowProps) {
         <div className="text-center py-4">
           <h3 className="font-serif text-2xl font-semibold text-pract-charcoal">{t(cfg.disqualify.heading, locale)}</h3>
           <p className="mt-3 text-base text-pract-charcoal/80 leading-relaxed max-w-md mx-auto">{t(cfg.disqualify.body, locale)}</p>
-          {/* No restart, no CTA — by design (see config). */}
+          {/* No restart by design. The only exit is the external link. */}
+          <a
+            href={cfg.disqualify.ctaHref}
+            className="mt-6 inline-flex items-center justify-center gap-2 bg-pract-gold text-pract-black px-6 py-3.5 min-h-[48px] rounded-md text-base font-bold hover:bg-pract-gold-hover transition-colors shadow-md"
+          >
+            <ArrowLeft size={16} aria-hidden="true" /> {t(cfg.disqualify.cta, locale)}
+          </a>
         </div>
       )}
     </div>

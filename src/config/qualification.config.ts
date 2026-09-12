@@ -67,10 +67,11 @@ export interface QualificationConfig {
   contact: ContactStep;
   /**
    * Copy for the route-out screen. Rendered inline; no URL change, no contact record.
-   * Deliberately has NO restart and NO call to action: a disqualified visitor does not get
-   * a second pass at the form (and we hold no contact info, so nobody can follow up).
+   * No restart by design. The only exit is the external link (sends them back to Facebook).
+   * NOTE: no contact details are collected before this screen, so "we'll be in touch" has
+   * nothing behind it — wording chosen by Shaun.
    */
-  disqualify: { heading: Text; body: Text };
+  disqualify: { heading: Text; body: Text; cta: Text; ctaHref: string };
   /** Copy shown on the thank-you screen. Same path for both branches; content picked off state. */
   thankYou: { insurance: { heading: Text; body: Text }; selfpay: { heading: Text; body: Text } };
   routes: {
@@ -250,11 +251,13 @@ const contact = {
 // ---------------------------------------------------------------------------
 
 const disqualify = {
-  heading: { en: 'Take care of those teeth!', ru: 'Берегите зубы!' },
+  heading: { en: 'Thank you.', ru: 'Спасибо.' },
   body: {
-    en: "We're a specialist focused on restorative and implant work — for a cleaning, a good general dentist is your best bet. Take care of those teeth!",
-    ru: 'Мы специализируемся на восстановлении зубов и имплантации — для чистки лучше всего подойдёт хороший стоматолог общей практики. Берегите зубы!',
+    en: 'Thank you for filling out the form. One of our team members will be in touch.',
+    ru: 'Спасибо, что заполнили форму. Один из наших сотрудников свяжется с вами.',
   },
+  cta: { en: 'Go back to Facebook', ru: 'Вернуться в Facebook' },
+  ctaHref: 'https://www.facebook.com',
 } as const;
 
 // ---------------------------------------------------------------------------
