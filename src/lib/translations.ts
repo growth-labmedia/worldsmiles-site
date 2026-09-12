@@ -7,8 +7,8 @@ export const translations = {
     // Hero
     hero_eyebrow: "BOARD-TRAINED PROSTHODONTIST · BROOKLYN · RUSSIAN SPOKEN",
     hero_trust_badge: "5.0 on Google · 200+ verified reviews",
-    hero_headline: "Three Different Dentists. Three Different Plans. The Same Tooth.",
-    hero_subhead: "Get a specialist's read before you decide anything. 60 minutes. 3D cone-beam scan (if needed). Written treatment plan with locked-in pricing.",
+    hero_headline: "Three Dentists, Three Different Plans? Get a Specialist Second Opinion for $147.",
+    hero_subhead: "For patients who've already heard two or three different plans. One 60-minute session with a board-trained prosthodontist: 3D scan if needed, every plan you've been handed reviewed side by side, and a written treatment plan with locked-in pricing to take home.",
     hero_value_card_1: "$1,675 in specialist diagnostic care.",
     hero_value_card_2_1: "Today: $147.",
     hero_value_card_2_2: "Credits toward treatment if you proceed. Yours to keep if you don't.",
@@ -105,8 +105,8 @@ export const translations = {
     // Hero
     hero_eyebrow: "СЕРТИФИЦИРОВАННЫЙ ВРАЧ-ПРОСТОДОНТ · БРУКЛИН · МЫ ГОВОРИМ ПО-РУССКИ",
     hero_trust_badge: "5.0 в Google · Более 200 реальных отзывов",
-    hero_headline: "Три разных стоматолога. Три разных плана. Один и тот же зуб.",
-    hero_subhead: "Получите компетентное мнение узкого специалиста до принятия решения. 60 минут. 3D-снимок (при необходимости). Письменный план с фиксированной ценой.",
+    hero_headline: "Три стоматолога — три разных плана? Получите второе мнение специалиста за $147.",
+    hero_subhead: "Для пациентов, которые уже услышали два-три разных плана лечения. Одна 60-минутная консультация с сертифицированным протезистом: 3D-снимок при необходимости, разбор всех предложенных вам планов и письменный план лечения с фиксированной ценой, который останется у вас.",
     hero_value_card_1: "$1,675 за специализированную диагностику.",
     hero_value_card_2_1: "Сегодня: $147.",
     hero_value_card_2_2: "Сумма зачтется в стоимость лечения. План остается у вас в любом случае.",

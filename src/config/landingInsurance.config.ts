@@ -12,7 +12,8 @@ type Overrides = Partial<Record<Keys, string>>;
 
 const en: Overrides = {
   nav_cta: 'Book My Insurance Consult',
-  hero_subhead: "Get a specialist's read before you decide anything. 60 minutes. 3D cone-beam scan (if needed). Written treatment plan with your real out-of-pocket cost.",
+  hero_headline: 'Three Dentists, Three Different Plans? Get a Specialist Second Opinion — We Accept Your Insurance.',
+  hero_subhead: "For patients who've already heard two or three different plans. One 60-minute session with a board-trained prosthodontist: 3D scan if needed, every plan you've been handed reviewed side by side, and a written treatment plan with your real out-of-pocket cost. We verify your benefits before you come in.",
   hero_value_card_1: "You're in-network. Let's use it.",
   hero_value_card_2_1: 'We verify your benefits before you come in.',
   hero_value_card_2_2: 'Your real cost, in writing, before anything starts.',
@@ -32,7 +33,8 @@ const en: Overrides = {
 
 const ru: Overrides = {
   nav_cta: 'Записаться по страховке',
-  hero_subhead: 'Получите мнение узкого специалиста до принятия решения. 60 минут. 3D-снимок (при необходимости). Письменный план лечения с вашей реальной стоимостью.',
+  hero_headline: 'Три стоматолога — три разных плана? Получите второе мнение специалиста — мы принимаем вашу страховку.',
+  hero_subhead: 'Для пациентов, которые уже услышали два-три разных плана лечения. Одна 60-минутная консультация с сертифицированным протезистом: 3D-снимок при необходимости, разбор всех предложенных вам планов и письменный план лечения с вашей реальной стоимостью. Мы проверим вашу страховку до визита.',
   hero_value_card_1: 'Ваша страховка у нас принимается. Давайте её используем.',
   hero_value_card_2_1: 'Мы проверим ваши страховые выплаты до визита.',
   hero_value_card_2_2: 'Ваша реальная стоимость — письменно, до начала лечения.',

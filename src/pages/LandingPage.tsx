@@ -174,8 +174,7 @@ export default function LandingPage({ variant = 'selfpay' }: { variant?: Landing
         </p>
       </div>
 
-      {/* 3. THE OFFER STACK — compact checklist on the insurance variant, full value stack on the $147 page */}
-      {variant === 'insurance' ? (
+      {/* 3. THE OFFER — one compact checklist card. $147 page keeps its value anchors + total; insurance page shows the note only. */}
       <section className="py-14 md:py-16 px-4 md:px-8 relative bg-white">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-center font-serif text-3xl md:text-4xl font-semibold mb-8 text-pract-charcoal">
@@ -183,16 +182,34 @@ export default function LandingPage({ variant = 'selfpay' }: { variant?: Landing
           </h2>
           <div className="bg-pract-cream p-5 md:p-7 rounded-2xl border border-pract-sage/30 shadow-sm">
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
-              {[t.offer_1_title, t.offer_2_title, t.offer_3_title, t.offer_4_title, t.offer_5_title].map((title, i) => (
+              {[
+                { title: t.offer_1_title, val: t.offer_1_value },
+                { title: t.offer_2_title, val: t.offer_2_value },
+                { title: t.offer_3_title, val: t.offer_3_value },
+                { title: t.offer_4_title, val: t.offer_4_value },
+                { title: t.offer_5_title, val: t.offer_5_value },
+              ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <CheckCircle className="text-pract-gold shrink-0 mt-0.5" size={18} aria-hidden="true" />
-                  <span className="text-base text-pract-charcoal font-medium leading-snug">{title}</span>
+                  <span className="text-base text-pract-charcoal font-medium leading-snug">
+                    {item.title}
+                    {variant === 'selfpay' && (
+                      <span className="block text-sm text-pract-gold font-semibold">{item.val}</span>
+                    )}
+                  </span>
                 </li>
               ))}
             </ul>
-            <p className="mt-5 pt-4 border-t border-pract-sage/30 text-sm text-pract-charcoal/70 text-center">
-              {t.offer_note}
-            </p>
+            <div className="mt-5 pt-4 border-t border-pract-sage/30 text-center">
+              {variant === 'selfpay' && (
+                <p className="text-base md:text-lg text-pract-charcoal font-medium">
+                  {t.offer_subtotal} <span className="text-pract-charcoal/50 mx-1">·</span> <span className="font-serif font-bold text-2xl md:text-3xl text-pract-black align-middle">{t.offer_investment}</span>
+                </p>
+              )}
+              <p className={`text-sm text-pract-charcoal/70 ${variant === 'selfpay' ? 'mt-2' : ''}`}>
+                {t.offer_note}
+              </p>
+            </div>
           </div>
           <div className="mt-7 text-center">
             <a href="#book" onClick={scrollToCalendar} className="inline-block bg-pract-gold text-pract-black px-8 py-4 rounded-md text-lg font-bold hover:bg-pract-gold-hover transition-colors shadow-md w-full sm:w-auto">
@@ -201,50 +218,6 @@ export default function LandingPage({ variant = 'selfpay' }: { variant?: Landing
           </div>
         </div>
       </section>
-      ) : (
-      <section className="py-20 px-4 md:px-8 relative bg-white">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-center font-serif text-3xl md:text-4xl font-semibold mb-12 text-pract-charcoal">
-            {t.offer_title}
-          </h2>
-          
-          <div className="bg-pract-cream p-6 md:p-10 rounded-2xl border border-pract-sage/30 shadow-sm">
-            {[
-              { title: t.offer_1_title, val: t.offer_1_value },
-              { title: t.offer_2_title, val: t.offer_2_value },
-              { title: t.offer_3_title, val: t.offer_3_value },
-              { title: t.offer_4_title, val: t.offer_4_value },
-              { title: t.offer_5_title, val: t.offer_5_value }
-            ].map((item, i) => (
-              <div key={i} className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-pract-sage/20 pb-5 mb-5 last:border-0 last:pb-0 last:mb-0 gap-2 sm:gap-6">
-                <div className="flex items-start gap-4">
-                  <CheckCircle className="text-pract-gold shrink-0 mt-0.5" size={20} />
-                  <span className="text-lg md:text-xl text-pract-charcoal font-medium">{item.title}</span>
-                </div>
-                <span className="text-pract-gold font-semibold tracking-wide whitespace-nowrap text-right">
-                  {item.val}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 text-center">
-            <div className="text-lg md:text-xl text-pract-charcoal mb-2 font-medium">
-              {t.offer_subtotal}
-            </div>
-            <div className="text-5xl md:text-6xl font-serif font-bold text-pract-black mb-4">
-              {t.offer_investment}
-            </div>
-            <p className="italic text-pract-charcoal/70 text-base mb-8 max-w-xl mx-auto">
-              {t.offer_note}
-            </p>
-            <a href="#book" onClick={scrollToCalendar} className="inline-block bg-pract-gold text-pract-black px-8 py-4 rounded-md text-lg font-bold hover:bg-pract-gold-hover transition-colors shadow-md w-full sm:w-auto">
-              {t.hero_cta}
-            </a>
-          </div>
-        </div>
-      </section>
-      )}
 
       {/* 4. SOCIAL PROOF — CASE RESULT CARDS (config/cases.config.ts; SHOW_CASE_RESULTS kill switch) */}
       <CaseResultCards locale={lang} />

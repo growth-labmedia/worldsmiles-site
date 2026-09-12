@@ -65,8 +65,12 @@ export interface QualificationConfig {
   q1: Question<'continue' | 'disqualify'>;
   q2: Question<'insurance' | 'selfpay'>;
   contact: ContactStep;
-  /** Copy for the route-out screen. Rendered inline; no URL change, no contact record. */
-  disqualify: { heading: Text; body: Text; cta: Text; ctaHref: string };
+  /**
+   * Copy for the route-out screen. Rendered inline; no URL change, no contact record.
+   * Deliberately has NO restart and NO call to action: a disqualified visitor does not get
+   * a second pass at the form (and we hold no contact info, so nobody can follow up).
+   */
+  disqualify: { heading: Text; body: Text };
   /** Copy shown on the thank-you screen. Same path for both branches; content picked off state. */
   thankYou: { insurance: { heading: Text; body: Text }; selfpay: { heading: Text; body: Text } };
   routes: {
@@ -80,7 +84,6 @@ export interface QualificationConfig {
   ui: {
     back: Text;
     stepOf: Text; // "Step {n} of {total}"
-    restart: Text;
   };
   /**
    * GHL inbound webhook (workflow with an Inbound Webhook trigger). Receives ONLY
@@ -252,8 +255,6 @@ const disqualify = {
     en: "We're a specialist focused on restorative and implant work — for a cleaning, a good general dentist is your best bet. Take care of those teeth!",
     ru: 'Мы специализируемся на восстановлении зубов и имплантации — для чистки лучше всего подойдёт хороший стоматолог общей практики. Берегите зубы!',
   },
-  cta: { en: 'Back to the top', ru: 'Вернуться наверх' },
-  ctaHref: '#top',
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -298,7 +299,6 @@ export const qualificationConfig = {
   ui: {
     back: { en: 'Back', ru: 'Назад' },
     stepOf: { en: 'Step {n} of {total}', ru: 'Шаг {n} из {total}' },
-    restart: { en: 'Start over', ru: 'Начать заново' },
   },
   webhook: {
     url: '', // PENDING: GHL inbound webhook URL from Shaun. Empty = skip POST, continue to calendar.

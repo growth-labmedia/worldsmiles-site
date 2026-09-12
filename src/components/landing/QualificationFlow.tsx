@@ -23,7 +23,7 @@ interface QualificationFlowProps {
  *  - The Q2 (carrier) answer is React state only. It picks the next screen and is never
  *    written to a URL, form field, webhook, or analytics payload.
  *  - The Q1 answer is likewise never transmitted. (See config `frontDeskTag` note.)
- *  - Disqualified = inline screen. No URL change, no contact record, no submission.
+ *  - Disqualified = inline screen. No URL change, no contact record, no submission, no restart.
  *  - The webhook receives { firstName, lastName, phone, email } and nothing else.
  *  - Analytics receives step numbers only (typed in lib/analytics.ts).
  */
@@ -111,15 +111,6 @@ export default function QualificationFlow({ locale }: QualificationFlowProps) {
       setScreen('calendar');
       scrollToTop();
     }
-  };
-
-  const restart = () => {
-    setPendingRoute(null);
-    setLead({ firstName: '', lastName: '', phone: '', email: '' });
-    setStatus('idle');
-    finished.current = false;
-    setScreen('q1');
-    scrollToTop();
   };
 
   const back = () => {
@@ -262,9 +253,7 @@ export default function QualificationFlow({ locale }: QualificationFlowProps) {
         <div className="text-center py-4">
           <h3 className="font-serif text-2xl font-semibold text-pract-charcoal">{t(cfg.disqualify.heading, locale)}</h3>
           <p className="mt-3 text-base text-pract-charcoal/80 leading-relaxed max-w-md mx-auto">{t(cfg.disqualify.body, locale)}</p>
-          <button type="button" onClick={restart} className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-pract-charcoal hover:text-pract-gold min-h-[44px] px-3 cursor-pointer">
-            <ArrowLeft size={16} /> {t(cfg.ui.restart, locale)}
-          </button>
+          {/* No restart, no CTA — by design (see config). */}
         </div>
       )}
     </div>
