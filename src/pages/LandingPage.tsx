@@ -9,7 +9,7 @@ import QualificationFlow from '../components/landing/QualificationFlow';
 import CaseResultCards from '../components/landing/CaseResultCards';
 import TestimonialVideos from '../components/landing/TestimonialVideos';
 import GhlCalendar from '../components/landing/GhlCalendar';
-import { insuranceOverrides } from '../config/landingInsurance.config';
+import { insuranceOverrides, insuranceCalendarIntro } from '../config/landingInsurance.config';
 import { qualificationConfig, t as tx } from '../config/qualification.config';
 import consultRoom from '../assets/landing/consult-room.jpg';
 import scan3d from '../assets/landing/3d-scan.jpg';
@@ -121,6 +121,13 @@ export default function LandingPage({ variant = 'selfpay' }: { variant?: Landing
           <div className="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 w-full mt-2 lg:mt-0">
              {variant === 'insurance' ? (
                <div id="book" className="scroll-mt-24">
+                 <div className="bg-white rounded-xl shadow-lg border border-pract-sage/30 p-5 md:p-6 mb-4 flex items-start gap-3">
+                   <CheckCircle className="text-pract-gold shrink-0 mt-0.5" size={22} aria-hidden="true" />
+                   <div>
+                     <h3 className="font-serif text-xl md:text-2xl font-semibold text-pract-charcoal leading-snug">{tx(insuranceCalendarIntro.heading, lang)}</h3>
+                     <p className="mt-1.5 text-sm md:text-base text-pract-charcoal/80">{tx(insuranceCalendarIntro.body, lang)}</p>
+                   </div>
+                 </div>
                  <GhlCalendar
                    calendarId={qualificationConfig.calendars.insurance.calendarId}
                    embedId={qualificationConfig.calendars.insurance.embedId}

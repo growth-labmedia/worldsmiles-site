@@ -56,3 +56,12 @@ const _keysMatch: SameKeys<typeof en, typeof ru> = true;
 void _keysMatch;
 
 export const insuranceOverrides = { en, ru } as const;
+
+/** Rendered directly above the booking calendar on /landing/insurance. */
+export const insuranceCalendarIntro = {
+  heading: { en: 'Good news — we accept your insurance.', ru: 'Хорошая новость — мы принимаем вашу страховку.' },
+  body: {
+    en: "Pick a time below. We'll verify your benefits before your visit and put your real cost in writing — nothing starts until you say so.",
+    ru: 'Выберите время ниже. Мы проверим вашу страховку до визита и укажем реальную стоимость письменно — ничего не начнётся без вашего согласия.',
+  },
+} as const;
