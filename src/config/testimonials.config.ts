@@ -1,7 +1,7 @@
 /**
  * Patient testimonial videos (brief §9). Hosted on Bunny Stream — no MP4s in the repo.
  *
- * PENDING: no videos yet. The section renders nothing while this list is empty.
+ * The section renders nothing while this list is empty.
  * To add one: paste the `src` from the embed code on the video's details page in the
  * Bunny dashboard (do not hand-type the host), set the custom poster URL, and mark the
  * primary (burned-in) caption language.
@@ -25,8 +25,14 @@ export interface Testimonial {
 }
 
 export const testimonials: readonly Testimonial[] = [
-  // PENDING — example shape:
-  // { id: 't1', embedSrc: 'https://iframe.mediadelivery.net/embed/731039/<video-guid>', poster: 'https://…/poster-t1.jpg', primaryLanguage: 'en', ariaLabel: { en: 'Patient testimonial 1', ru: 'Отзыв пациента 1' } },
+  {
+    id: 't1',
+    embedSrc: 'https://iframe.mediadelivery.net/embed/731039/d5b403c3-17a0-49a6-a43c-8bdec0507655',
+    // Bunny's auto thumbnail. Replace with a custom frame (mid-expression) from the video's dashboard page when ready.
+    poster: 'https://vz-c10705d0-04c.b-cdn.net/d5b403c3-17a0-49a6-a43c-8bdec0507655/thumbnail.jpg',
+    primaryLanguage: 'en', // TODO confirm: which language is burned in?
+    ariaLabel: { en: 'Patient testimonial 1', ru: 'Отзыв пациента 1' },
+  },
 ];
 
 export const testimonialsCopy = {
