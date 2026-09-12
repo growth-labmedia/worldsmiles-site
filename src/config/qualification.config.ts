@@ -175,8 +175,8 @@ const q1 = {
 // ---------------------------------------------------------------------------
 // Q2 — plan check (qualified leads only)
 // ---------------------------------------------------------------------------
-// PENDING: carrier list is not finalized. Replace CARRIER_n with real in-network
-// carriers (one line each). Layout handles 3–15 options. Keep "None of the above" last.
+// In-network carriers as of 2026-09-12 (from Shaun). One line each; layout handles 3–15 options.
+// Carrier names are brand names and stay the same in Russian. Keep "None of the above" last.
 // The answer here is NEVER stored or transmitted anywhere. View state only.
 
 const q2 = {
@@ -191,11 +191,16 @@ const q2 = {
     ru: 'Любой ответ подходит — от него зависит только то, что мы покажем дальше.',
   },
   options: [
-    { id: 'carrier_1', label: { en: 'CARRIER_1', ru: 'CARRIER_1' }, route: 'insurance' }, // PENDING
-    { id: 'carrier_2', label: { en: 'CARRIER_2', ru: 'CARRIER_2' }, route: 'insurance' }, // PENDING
-    { id: 'carrier_3', label: { en: 'CARRIER_3', ru: 'CARRIER_3' }, route: 'insurance' }, // PENDING
-    { id: 'carrier_4', label: { en: 'CARRIER_4', ru: 'CARRIER_4' }, route: 'insurance' }, // PENDING
-    { id: 'carrier_5', label: { en: 'CARRIER_5', ru: 'CARRIER_5' }, route: 'insurance' }, // PENDING
+    { id: 'aetna_ppo', label: { en: 'Aetna PPO', ru: 'Aetna PPO' }, route: 'insurance' },
+    { id: 'always_care', label: { en: 'Always Care', ru: 'Always Care' }, route: 'insurance' },
+    { id: 'ameritas', label: { en: 'Ameritas', ru: 'Ameritas' }, route: 'insurance' },
+    { id: 'anthem', label: { en: 'Anthem', ru: 'Anthem' }, route: 'insurance' },
+    { id: 'geha', label: { en: 'GEHA', ru: 'GEHA' }, route: 'insurance' },
+    { id: 'dnoa', label: { en: 'DNOA', ru: 'DNOA' }, route: 'insurance' },
+    { id: 'humana', label: { en: 'Humana', ru: 'Humana' }, route: 'insurance' },
+    { id: 'metlife', label: { en: 'MetLife', ru: 'MetLife' }, route: 'insurance' },
+    { id: 'principal', label: { en: 'Principal', ru: 'Principal' }, route: 'insurance' },
+    { id: 'united_concordia', label: { en: 'United Concordia', ru: 'United Concordia' }, route: 'insurance' },
     {
       id: 'none',
       label: { en: 'None of the above', ru: 'Ничего из перечисленного' },
