@@ -174,7 +174,34 @@ export default function LandingPage({ variant = 'selfpay' }: { variant?: Landing
         </p>
       </div>
 
-      {/* 3. THE OFFER STACK */}
+      {/* 3. THE OFFER STACK — compact checklist on the insurance variant, full value stack on the $147 page */}
+      {variant === 'insurance' ? (
+      <section className="py-14 md:py-16 px-4 md:px-8 relative bg-white">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-center font-serif text-3xl md:text-4xl font-semibold mb-8 text-pract-charcoal">
+            {t.offer_title}
+          </h2>
+          <div className="bg-pract-cream p-5 md:p-7 rounded-2xl border border-pract-sage/30 shadow-sm">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+              {[t.offer_1_title, t.offer_2_title, t.offer_3_title, t.offer_4_title, t.offer_5_title].map((title, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <CheckCircle className="text-pract-gold shrink-0 mt-0.5" size={18} aria-hidden="true" />
+                  <span className="text-base text-pract-charcoal font-medium leading-snug">{title}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-5 pt-4 border-t border-pract-sage/30 text-sm text-pract-charcoal/70 text-center">
+              {t.offer_note}
+            </p>
+          </div>
+          <div className="mt-7 text-center">
+            <a href="#book" onClick={scrollToCalendar} className="inline-block bg-pract-gold text-pract-black px-8 py-4 rounded-md text-lg font-bold hover:bg-pract-gold-hover transition-colors shadow-md w-full sm:w-auto">
+              {t.hero_cta}
+            </a>
+          </div>
+        </div>
+      </section>
+      ) : (
       <section className="py-20 px-4 md:px-8 relative bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-center font-serif text-3xl md:text-4xl font-semibold mb-12 text-pract-charcoal">
@@ -217,6 +244,7 @@ export default function LandingPage({ variant = 'selfpay' }: { variant?: Landing
           </div>
         </div>
       </section>
+      )}
 
       {/* 4. SOCIAL PROOF — CASE RESULT CARDS (config/cases.config.ts; SHOW_CASE_RESULTS kill switch) */}
       <CaseResultCards locale={lang} />
