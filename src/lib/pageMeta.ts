@@ -84,6 +84,10 @@ export const PAGE_META: Record<string, PageMeta> = {
     "title": "Specialist Second Opinion Session, $147 | World Smiles Prosthodontics Brooklyn",
     "description": "Three dentists, three plans? Get a prosthodontist's read before you decide. 60-minute session, 3D scan if needed, written treatment plan with locked-in pricing. $147, credited toward treatment."
   },
+  "LandingBookPage": {
+    "title": "Book Your $147 Specialist Session | World Smiles Prosthodontics Brooklyn",
+    "description": "One quick question, then pick your time. 60-minute specialist session with a board-trained prosthodontist, 3D scan if needed, written plan with locked-in pricing."
+  },
   "LandingInsurancePage": {
     "title": "In-Network Specialist Consultation | World Smiles Prosthodontics Brooklyn",
     "description": "In-network with most major PPO plans. We verify your benefits before your visit and put your real cost in writing. 60-minute specialist consultation with 3D scan if needed."

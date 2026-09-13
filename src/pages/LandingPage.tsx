@@ -14,15 +14,16 @@ import consultRoom from '../assets/landing/consult-room.jpg';
 import scan3d from '../assets/landing/3d-scan.jpg';
 import sittingArea from '../assets/landing/sitting-area.jpg';
 
-type LandingVariant = 'selfpay' | 'insurance';
+type LandingVariant = 'selfpay' | 'insurance' | 'book';
 
 /**
- * Paid-traffic landing page. `variant="insurance"` (served at /landing/insurance) swaps the
- * offer framing via config/landingInsurance.config.ts and renders the in-network calendar
- * directly in place of the qualification flow. Everything else is shared.
+ * Paid-traffic landing page.
+ *  - 'selfpay'   (/landing)           full flow: Q1 → Q2 → contact → calendar
+ *  - 'book'      (/landing/book)      GHL form redirects here after Q1 + contact; flow starts at Q2
+ *  - 'insurance' (/landing/insurance) in-network copy overrides + insurance calendar, no flow
  */
 export default function LandingPage({ variant = 'selfpay' }: { variant?: LandingVariant }) {
-  usePageMeta(variant === 'insurance' ? 'LandingInsurancePage' : 'LandingPage');
+  usePageMeta(variant === 'insurance' ? 'LandingInsurancePage' : variant === 'book' ? 'LandingBookPage' : 'LandingPage');
   const [lang, setLang] = useState<'en' | 'ru'>('en');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -135,7 +136,7 @@ export default function LandingPage({ variant = 'selfpay' }: { variant?: Landing
                  />
                </div>
              ) : (
-               <QualificationFlow locale={lang} />
+               <QualificationFlow locale={lang} startAt={variant === 'book' ? 'q2' : 'q1'} />
              )}
           </div>
           

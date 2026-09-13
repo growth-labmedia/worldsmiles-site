@@ -40,6 +40,7 @@ export default function App() {
         {/* Standalone paid-traffic landing page: keeps its own header/footer, no site chrome */}
         <Route path="/landing" element={<LandingPage />} />
         <Route path="/landing/insurance" element={<LandingPage variant="insurance" />} />
+        <Route path="/landing/book" element={<LandingPage variant="book" />} />
 
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />

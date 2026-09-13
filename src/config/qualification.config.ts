@@ -85,6 +85,8 @@ export interface QualificationConfig {
   ui: {
     back: Text;
     stepOf: Text; // "Step {n} of {total}"
+    /** Shown instead of "Step n of 3" on /landing/book, where only the plan check remains. */
+    lastStep: Text;
   };
   /**
    * GHL inbound webhook (workflow with an Inbound Webhook trigger). Receives ONLY
@@ -302,6 +304,7 @@ export const qualificationConfig = {
   ui: {
     back: { en: 'Back', ru: 'Назад' },
     stepOf: { en: 'Step {n} of {total}', ru: 'Шаг {n} из {total}' },
+    lastStep: { en: 'One last question', ru: 'Последний вопрос' },
   },
   webhook: {
     url: '', // PENDING: GHL inbound webhook URL from Shaun. Empty = skip POST, continue to calendar.

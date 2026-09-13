@@ -14,6 +14,12 @@ const TOTAL_STEPS = 3;
 
 interface QualificationFlowProps {
   locale: Locale;
+  /**
+   * 'q2': start at the plan check. Used on /landing/book, which the GHL form redirects to
+   * after it has already collected Q1 + name/phone/email. Contact step is skipped; the
+   * carrier answer still never leaves the browser.
+   */
+  startAt?: 'q1' | 'q2';
 }
 
 /**
@@ -27,9 +33,10 @@ interface QualificationFlowProps {
  *  - The webhook receives { firstName, lastName, phone, email } and nothing else.
  *  - Analytics receives step numbers only (typed in lib/analytics.ts).
  */
-export default function QualificationFlow({ locale }: QualificationFlowProps) {
+export default function QualificationFlow({ locale, startAt = 'q1' }: QualificationFlowProps) {
   const navigate = useNavigate();
-  const [screen, setScreen] = useState<Screen>('q1');
+  const skipContact = startAt === 'q2';
+  const [screen, setScreen] = useState<Screen>(startAt);
   // View state only. Never persisted anywhere. See invariants above.
   const [pendingRoute, setPendingRoute] = useState<Exclude<Route, 'disqualify'> | null>(null);
   const [lead, setLead] = useState({ firstName: '', lastName: '', phone: '', email: '' });
@@ -80,6 +87,17 @@ export default function QualificationFlow({ locale }: QualificationFlowProps) {
 
   const answerQ2 = (route: 'insurance' | 'selfpay') => {
     completeStep(2);
+    if (skipContact) {
+      // Contact already captured by the GHL form. Go straight to the right calendar.
+      finished.current = true;
+      if (route === 'insurance') {
+        navigate(cfg.routes.insurance);
+      } else {
+        setScreen('calendar');
+        scrollToTop();
+      }
+      return;
+    }
     setPendingRoute(route);
     setScreen('contact');
     scrollToTop();
@@ -114,14 +132,16 @@ export default function QualificationFlow({ locale }: QualificationFlowProps) {
   };
 
   const back = () => {
-    if (screen === 'q2') setScreen('q1');
+    if (screen === 'q2' && !skipContact) setScreen('q1');
     if (screen === 'contact') { setPendingRoute(null); setScreen('q2'); }
     setStatus('idle');
     scrollToTop();
   };
 
   // ---- shared bits ----
-  const stepLabel = (n: 1 | 2 | 3) => t(cfg.ui.stepOf, locale).replace('{n}', String(n)).replace('{total}', String(TOTAL_STEPS));
+  const stepLabel = (n: 1 | 2 | 3) => skipContact
+    ? t(cfg.ui.lastStep, locale)
+    : t(cfg.ui.stepOf, locale).replace('{n}', String(n)).replace('{total}', String(TOTAL_STEPS));
   const optionClass =
     'w-full text-left px-4 py-3.5 min-h-[52px] rounded-lg border border-pract-sage/60 bg-pract-cream text-pract-charcoal text-[15px] md:text-base font-medium leading-snug hover:border-pract-gold hover:bg-[#F5F1E8] active:bg-[#F0EADC] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-pract-gold cursor-pointer';
   const inputClass =
@@ -163,7 +183,7 @@ export default function QualificationFlow({ locale }: QualificationFlowProps) {
 
       {screen === 'q2' && (
         <div>
-          <Header step={2} showBack />
+          <Header step={2} showBack={!skipContact} />
           <h3 className="font-serif text-xl md:text-2xl font-semibold text-pract-charcoal leading-snug">{t(cfg.q2.prompt, locale)}</h3>
           <p className="mt-1.5 mb-5 text-sm text-pract-charcoal/70">{t(cfg.q2.subline!, locale)}</p>
           {/* Carriers 2-up from sm; "none of the above" always last and full width. Handles 3–15 options. */}
