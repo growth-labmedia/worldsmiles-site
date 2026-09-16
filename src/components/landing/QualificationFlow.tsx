@@ -39,7 +39,7 @@ export default function QualificationFlow({ locale, startAt = 'q1' }: Qualificat
   const [screen, setScreen] = useState<Screen>(startAt);
   // View state only. Never persisted anywhere. See invariants above.
   const [pendingRoute, setPendingRoute] = useState<Exclude<Route, 'disqualify'> | null>(null);
-  const [lead, setLead] = useState({ firstName: '', lastName: '', phone: '', email: '' });
+  const [lead, setLead] = useState({ firstName: '', lastName: '', phone: '', email: '', smsConsent: false });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'error' | 'invalid'>('idle');
   const rootRef = useRef<HTMLDivElement>(null);
 
@@ -115,6 +115,7 @@ export default function QualificationFlow({ locale, startAt = 'q1' }: Qualificat
       lastName: lead.lastName.trim(),
       phone: lead.phone.trim(),
       email: lead.email.trim(),
+      smsConsent: lead.smsConsent,
     });
     if (!ok) {
       setStatus('error');
@@ -228,6 +229,11 @@ export default function QualificationFlow({ locale, startAt = 'q1' }: Qualificat
               <label htmlFor="qf-email" className="block text-sm font-medium text-pract-charcoal mb-1.5">{t(cfg.contact.labels.email, locale)}</label>
               <input id="qf-email" name="email" type="email" inputMode="email" autoComplete="email" value={lead.email} onChange={(e) => setLead({ ...lead, email: e.target.value })} className={inputClass} />
             </div>
+            {/* SMS consent — A2P 10DLC opt-in evidence. Optional; value travels to GHL as smsConsent. */}
+            <label htmlFor="qf-sms-consent" className="flex items-start gap-3 text-xs text-pract-charcoal/70 leading-relaxed cursor-pointer">
+              <input id="qf-sms-consent" name="smsConsent" type="checkbox" checked={lead.smsConsent} onChange={(e) => setLead({ ...lead, smsConsent: e.target.checked })} className="mt-0.5 w-4 h-4 shrink-0 accent-pract-gold" />
+              <span>{t(cfg.contact.smsConsent, locale)}</span>
+            </label>
             <button
               type="submit"
               disabled={status === 'submitting'}

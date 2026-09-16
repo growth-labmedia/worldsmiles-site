@@ -193,6 +193,11 @@ export default function PrivacyPage() {
                 <li><strong>Legal compliance.</strong> We may disclose information when required by law, court order, or government regulation, or when we believe disclosure is necessary to protect rights, safety, or property.</li>
                 <li><strong>Business transfers.</strong> If the practice is ever sold, merged, or reorganized, your information may be transferred to the new entity, which would be bound by the terms of this policy or by a successor policy with substantially similar protections.</li>
               </ul>
+
+              <h3 id="sms" className="font-[Fraunces,Georgia,serif] text-[1.125rem] font-medium text-[#0A0A0A] mt-7 mb-3">Text messages (SMS)</h3>
+              <p>If you provide your mobile number and consent to receive text messages, World Smiles Prosthodontics may send you appointment confirmations, reminders, and replies to your inquiries. Message frequency varies. Message and data rates may apply.</p>
+              <p><strong>No mobile information will be shared with third parties or affiliates for marketing or promotional purposes.</strong> Information you share with us for text messaging, including your mobile number and your consent, is used only to communicate with you and is not sold, rented, or shared with any third party for their own marketing.</p>
+              <p>You can opt out at any time by replying <strong>STOP</strong> to any message. Reply <strong>HELP</strong> for assistance, or call us at <a href="tel:+13473787827" aria-label="Call World Smiles Prosthodontics at 347-378-7827" className="text-[#1B1B1B] hover:text-[#C9A961] underline">347-378-7827</a>.</p>
             </div>
           </section>
 

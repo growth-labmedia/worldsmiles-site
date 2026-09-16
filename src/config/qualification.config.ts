@@ -53,6 +53,8 @@ export interface ContactStep {
   labels: { firstName: Text; lastName: Text; phone: Text; email: Text };
   /** Shown under the email field. */
   privacyNote: Text;
+  /** SMS consent checkbox (A2P 10DLC opt-in). Optional to check; the value is sent to GHL as smsConsent. */
+  smsConsent: Text;
   submit: Text;
   submitting: Text;
   /** Shown when name or phone is empty. */
@@ -235,6 +237,10 @@ const contact = {
   privacyNote: {
     en: 'No spam. No marketing list. Your information stays in this office.',
     ru: 'Без спама. Без рассылок. Ваши данные остаются в нашем офисе.',
+  },
+  smsConsent: {
+    en: 'By checking this box, I consent to receive non-marketing text messages from World Smiles Prosthodontics about the Specialist Second Opinion. Message frequency varies, message & data rates may apply. Text HELP for assistance, reply STOP to opt out.',
+    ru: 'Отмечая этот пункт, я соглашаюсь получать информационные SMS-сообщения от World Smiles Prosthodontics о консультации Specialist Second Opinion. Частота сообщений может меняться, возможна плата за сообщения и передачу данных. Отправьте HELP для помощи или STOP, чтобы отписаться.',
   },
   submit: { en: 'Continue to the calendar', ru: 'Перейти к календарю' },
   submitting: { en: 'One moment…', ru: 'Секунду…' },
