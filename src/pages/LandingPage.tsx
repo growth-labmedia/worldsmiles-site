@@ -224,7 +224,7 @@ export default function LandingPage({ variant = 'selfpay' }: { variant?: Landing
       <CaseResultCards locale={lang} />
 
       {/* 4b. PATIENT TESTIMONIAL VIDEOS (config/testimonials.config.ts; renders nothing until videos are added) */}
-      <TestimonialVideos locale={lang} />
+      <TestimonialVideos locale={lang} cta={{ label: t.hero_cta, onClick: scrollToCalendar }} />
 
       {/* 5. THE PROSTHODONTIST DIFFERENCE */}
       <section className="py-24 px-4 md:px-8 bg-pract-black text-white relative">

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import type React from 'react';
 import { Play, X } from 'lucide-react';
 import { testimonials, testimonialsCopy } from '../../config/testimonials.config';
 import { t } from '../../config/qualification.config';
@@ -14,7 +15,13 @@ import { track } from '../../lib/analytics';
  *  - Tap-to-play with sound: autoplay=true, muted=false on the mounted iframe.
  *  - Renders nothing while the config list is empty.
  */
-export default function TestimonialVideos({ locale }: { locale: Locale }) {
+interface TestimonialVideosProps {
+  locale: Locale;
+  /** Booking button under the videos. Label comes from the page (hero_cta), click scrolls to #book. */
+  cta?: { label: string; onClick: (e: React.MouseEvent) => void };
+}
+
+export default function TestimonialVideos({ locale, cta }: TestimonialVideosProps) {
   const [active, setActive] = useState<number | null>(null);
   const [current, setCurrent] = useState(0); // which slide is centered on mobile (for the dots)
   const itemRefs = useRef<Array<HTMLDivElement | null>>([]);
@@ -133,6 +140,14 @@ export default function TestimonialVideos({ locale }: { locale: Locale }) {
             ))}
           </div>
         )}
+        {cta && (
+          <div className="mt-8 md:mt-10 text-center">
+            <a href="#book" onClick={cta.onClick} className="inline-block bg-pract-gold text-pract-black px-8 py-4 rounded-md text-lg font-bold hover:bg-pract-gold-hover transition-colors shadow-md w-full sm:w-auto">
+              {cta.label}
+            </a>
+          </div>
+        )}
+
       </div>
     </section>
   );
