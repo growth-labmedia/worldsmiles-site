@@ -40,6 +40,15 @@ export const testimonials: readonly Testimonial[] = [
     ariaLabel: { en: 'Patient testimonial 1', ru: 'Отзыв пациента 1' },
     // pullQuote: PENDING — needs the exact line from the video, verbatim.
   },
+  {
+    id: 't2',
+    embedSrc: 'https://iframe.mediadelivery.net/embed/731039/0e19d42d-ee3c-44e4-a626-bcb79db9b1a1',
+    // Bunny's auto thumbnail. Replace with a custom frame from the video's dashboard page when ready.
+    poster: 'https://vz-c10705d0-04c.b-cdn.net/0e19d42d-ee3c-44e4-a626-bcb79db9b1a1/thumbnail.jpg',
+    primaryLanguage: 'en', // TODO confirm: which language is spoken / burned in?
+    ariaLabel: { en: 'Patient testimonial 2', ru: 'Отзыв пациента 2' },
+    // pullQuote: PENDING — needs the exact line from the video, verbatim.
+  },
 ];
 
 /**
