@@ -16,7 +16,23 @@ import { track } from '../../lib/analytics';
  */
 export default function TestimonialVideos({ locale }: { locale: Locale }) {
   const [active, setActive] = useState<number | null>(null);
+  const [current, setCurrent] = useState(0); // which slide is centered on mobile (for the dots)
   const itemRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const railRef = useRef<HTMLDivElement>(null);
+
+  // Track the centered slide on mobile so the dots stay in sync with swipes.
+  const onRailScroll = () => {
+    const rail = railRef.current;
+    if (!rail || !rail.firstElementChild) return;
+    const slideW = (rail.firstElementChild as HTMLElement).getBoundingClientRect().width;
+    setCurrent(Math.round(rail.scrollLeft / slideW));
+  };
+
+  const goTo = (i: number) => {
+    const el = itemRefs.current[i];
+    if (!el) return;
+    el.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+  };
 
   // Unmount the player when its card leaves the viewport (swipe/scroll on mobile).
   useEffect(() => {
@@ -42,16 +58,21 @@ export default function TestimonialVideos({ locale }: { locale: Locale }) {
         <h2 className="text-center font-serif text-3xl md:text-4xl font-semibold mb-3 text-pract-charcoal">{t(testimonialsCopy.title, locale)}</h2>
         <p className="text-center text-sm md:text-base text-pract-charcoal/70 max-w-xl mx-auto mb-10">{t(testimonialsCopy.subtitle, locale)}</p>
 
-        {/* Mobile: horizontal snap rail, one full-width slide per video with the 9:16 card centered inside it.
+        {/* Mobile: horizontal snap rail. Each slide is 82% wide so the next card peeks in from the edge,
+            with side padding so the first and last slides still center. Dots below mirror the swipe.
             Desktop: cards side by side (max 3 across), centered as a group, capped at ~580px tall. */}
-        <div className="flex gap-0 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none pb-2 md:justify-center [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div
+          ref={railRef}
+          onScroll={onRailScroll}
+          className="flex gap-3 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none pb-2 -mx-4 px-[10vw] md:mx-0 md:px-0 md:justify-center [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
           {testimonials.map((v, i) => (
             <div
               key={v.id}
               ref={(el) => { itemRefs.current[i] = el; }}
-              className="snap-center shrink-0 w-full md:w-[326px] flex flex-col items-center"
+              className="snap-center shrink-0 w-[80vw] max-w-[340px] md:w-[326px] md:max-w-none flex flex-col items-center"
             >
-              <div className="relative w-full max-w-[320px] md:max-w-none rounded-2xl overflow-hidden bg-pract-black shadow-lg border border-pract-sage/30" style={{ aspectRatio: '9 / 16' }}>
+              <div className="relative w-full md:max-w-none rounded-2xl overflow-hidden bg-pract-black shadow-lg border border-pract-sage/30" style={{ aspectRatio: '9 / 16' }}>
                 {active === i ? (
                   <>
                     <iframe
@@ -94,6 +115,24 @@ export default function TestimonialVideos({ locale }: { locale: Locale }) {
             </div>
           ))}
         </div>
+
+        {testimonials.length > 1 && (
+          <div className="mt-4 flex justify-center gap-2 md:hidden" role="tablist" aria-label="Testimonials">
+            {testimonials.map((v, i) => (
+              <button
+                key={v.id}
+                type="button"
+                role="tab"
+                aria-selected={current === i}
+                aria-label={t(v.ariaLabel, locale)}
+                onClick={() => goTo(i)}
+                className="p-2 cursor-pointer"
+              >
+                <span className={`block h-2 rounded-full transition-all ${current === i ? 'w-6 bg-pract-gold' : 'w-2 bg-pract-charcoal/25'}`} />
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
