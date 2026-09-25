@@ -47,7 +47,7 @@ export default function HomePageTest() {
               Prosthodontist in Brooklyn.
             </h1>
             <p className="mt-5 text-[1.0625rem] md:text-[1.25rem] leading-[1.55] text-[#1B1B1B] max-w-[52ch] mx-auto">
-              A dental specialist in implants, crowns, dentures and full-mouth reconstruction. Dr. Lior Furman, NYU-trained.
+              A dental specialist in implants, crowns, dentures and full-mouth reconstruction.
             </p>
           </div>
 

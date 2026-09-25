@@ -82,7 +82,7 @@ export const PAGE_META: Record<string, PageMeta> = {
   },
   "HomePageTest": {
     "title": "Prosthodontist in Brooklyn | World Smiles Prosthodontics",
-    "description": "World Smiles Prosthodontics in Sheepshead Bay, Brooklyn: a dental specialist in implants, crowns, dentures, veneers, and full-mouth reconstruction. Dr. Lior Furman, NYU-trained. Russian spoken."
+    "description": "World Smiles Prosthodontics in Sheepshead Bay, Brooklyn: a dental specialist in implants, crowns, dentures, veneers, and full-mouth reconstruction. NYU-trained. Russian spoken."
   },
   "ServicesPageTest": {
     "title": "Prosthodontic Services | World Smiles Prosthodontics Brooklyn",
