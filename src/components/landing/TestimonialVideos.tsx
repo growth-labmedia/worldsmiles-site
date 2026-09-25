@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import type React from 'react';
-import { Play, X } from 'lucide-react';
+import { Play, X, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { testimonials, testimonialsCopy } from '../../config/testimonials.config';
 import { t } from '../../config/qualification.config';
 import type { Locale } from '../../config/qualification.config';
@@ -21,9 +22,11 @@ interface TestimonialVideosProps {
   cta?: { label: string; onClick: (e: React.MouseEvent) => void };
   /** Override the section heading (main-site test pages). When set, the subtitle is hidden. */
   heading?: string;
+  /** Optional button under each video, by index (e.g. the service the patient had). Not used on the landing page. */
+  links?: Array<{ label: string; to: string } | undefined>;
 }
 
-export default function TestimonialVideos({ locale, cta, heading }: TestimonialVideosProps) {
+export default function TestimonialVideos({ locale, cta, heading, links }: TestimonialVideosProps) {
   const [active, setActive] = useState<number | null>(null);
   const [current, setCurrent] = useState(0); // which slide is centered on mobile (for the dots)
   const itemRefs = useRef<Array<HTMLDivElement | null>>([]);
@@ -118,6 +121,11 @@ export default function TestimonialVideos({ locale, cta, heading }: TestimonialV
                   </button>
                 )}
               </div>
+              {links?.[i] && (
+                <Link to={links[i]!.to} className="mt-3 inline-flex items-center gap-1.5 bg-[#C9A961] hover:bg-[#A8893F] text-[#0A0A0A] px-5 py-2.5 min-h-[44px] rounded-lg text-[0.9375rem] font-semibold transition-colors">
+                  {links[i]!.label} <ArrowRight className="w-4 h-4" strokeWidth={1.75} />
+                </Link>
+              )}
               {v.pullQuote && (
                 <p className="mt-3 max-w-[320px] text-center font-serif italic text-base text-pract-charcoal/85 leading-snug">“{t(v.pullQuote, locale)}”</p>
               )}

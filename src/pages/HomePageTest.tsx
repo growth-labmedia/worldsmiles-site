@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Phone, ScanLine, FileText, Sparkles, ArrowRight } from 'lucide-react';
+import { Phone, MessageSquare, CalendarCheck, ScanLine, FileText, Sparkles, ArrowRight } from 'lucide-react';
 import { usePageMeta } from '../lib/seo';
 import { ServiceTileGrid } from '../components/test/ServiceTile';
 import BeforeAfterSlider from '../components/BeforeAfterSlider';
@@ -32,12 +32,14 @@ const TILES = [
 ];
 
 const RESULTS = [
-  { label: 'Full mouth reconstruction', before: fmrBefore, after: fmrAfter, beforeAlt: 'Before full mouth ceramic rehabilitation', afterAlt: 'After full mouth ceramic rehabilitation' },
-  { label: 'Dental implants', before: implantsBefore, after: implantsAfter, beforeAlt: 'Before: 7 implants with periodontal coordination', afterAlt: 'After: 7 implants with periodontal coordination' },
-  { label: 'Porcelain veneers', before: veneersBefore, after: veneersAfter, beforeAlt: 'Before: ceramic veneer reconstruction', afterAlt: 'After: ceramic veneer reconstruction' },
+  { label: 'Full mouth reconstruction', to: '/test/services#full-mouth-reconstruction', before: fmrBefore, after: fmrAfter, beforeAlt: 'Before full mouth ceramic rehabilitation', afterAlt: 'After full mouth ceramic rehabilitation' },
+  { label: 'Dental implants', to: '/test/services#dental-implants', before: implantsBefore, after: implantsAfter, beforeAlt: 'Before: 7 implants with periodontal coordination', afterAlt: 'After: 7 implants with periodontal coordination' },
+  { label: 'Porcelain veneers', to: '/test/services#veneers', before: veneersBefore, after: veneersAfter, beforeAlt: 'Before: ceramic veneer reconstruction', afterAlt: 'After: ceramic veneer reconstruction' },
 ];
 
 const STEPS = [
+  { icon: MessageSquare, title: 'Contact us', text: 'Call, or send the short form.' },
+  { icon: CalendarCheck, title: 'Set up a consult', text: 'We find a time that works.' },
   { icon: ScanLine, title: 'Consultation & 3D scan', text: 'About an hour. We look and talk.' },
   { icon: FileText, title: 'Written plan & pricing', text: 'Yours to take home and think over.' },
   { icon: Sparkles, title: 'Treatment', text: 'Staged at your pace, one specialist.' },
@@ -75,9 +77,6 @@ export default function HomePageTest() {
           </div>
 
           <div className="mt-8 md:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-            <Link to="/contact" className="inline-flex items-center justify-center bg-[#C9A961] hover:bg-[#A8893F] text-[#0A0A0A] px-8 py-3.5 min-h-[48px] rounded-lg text-[1rem] font-semibold transition-colors w-full sm:w-auto">
-              Contact Us
-            </Link>
             <a href="tel:+13473787827" aria-label="Call World Smiles Prosthodontics at 347-378-7827" className="inline-flex items-center justify-center gap-2 bg-white border-2 border-[#0A0A0A] text-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white px-8 py-3.5 min-h-[48px] rounded-lg text-[1rem] font-semibold transition-colors w-full sm:w-auto">
               <Phone className="w-4 h-4 pointer-events-none" strokeWidth={2} /> <span className="pointer-events-none">Call 347-378-7827</span>
             </a>
@@ -110,7 +109,15 @@ export default function HomePageTest() {
       </section>
 
       {/* PATIENT VIDEOS */}
-      <TestimonialVideos locale="en" heading="Hear from our patients" />
+      {/* TODO: confirm which service each video is about; both currently link to the services overview. */}
+      <TestimonialVideos
+        locale="en"
+        heading="Hear from our patients"
+        links={[
+          { label: 'Our services', to: '/test/services' },
+          { label: 'Our services', to: '/test/services' },
+        ]}
+      />
 
       {/* RESULTS — three sliders, one per headline service */}
       <section className="bg-[#F7F3EC] py-14 md:py-20">
@@ -122,7 +129,12 @@ export default function HomePageTest() {
             {RESULTS.map((r) => (
               <div key={r.label} className="rounded-xl overflow-hidden border border-[#E7E2D8] bg-white">
                 <BeforeAfterSlider beforeSrc={r.before} afterSrc={r.after} beforeAlt={r.beforeAlt} afterAlt={r.afterAlt} />
-                <p className="p-4 text-center font-[Fraunces,Georgia,serif] text-[1.0625rem] text-[#0A0A0A]">{r.label}</p>
+                <div className="p-4 text-center">
+                  <p className="font-[Fraunces,Georgia,serif] text-[1.0625rem] text-[#0A0A0A]">{r.label}</p>
+                  <Link to={r.to} className="mt-3 inline-flex items-center gap-1.5 bg-[#C9A961] hover:bg-[#A8893F] text-[#0A0A0A] px-5 py-2.5 min-h-[44px] rounded-lg text-[0.9375rem] font-semibold transition-colors">
+                    About {r.label.toLowerCase()} <ArrowRight className="w-4 h-4" strokeWidth={1.75} />
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
@@ -136,9 +148,9 @@ export default function HomePageTest() {
 
       {/* HOW IT WORKS */}
       <section className="bg-white py-14 md:py-20">
-        <div className="max-w-[1000px] mx-auto px-4 md:px-6">
+        <div className="max-w-[1200px] mx-auto px-4 md:px-6">
           <h2 className="text-[1.875rem] md:text-[2.5rem] leading-[1.15] tracking-[-0.015em] font-[Fraunces,Georgia,serif] font-medium text-center text-[#0A0A0A]">How it works</h2>
-          <ol className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <ol className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-6">
             {STEPS.map((s, i) => (
               <li key={s.title} className="text-center">
                 <div className="w-14 h-14 rounded-full bg-[#F7F3EC] border border-[#E7E2D8] flex items-center justify-center mx-auto">
