@@ -18,15 +18,16 @@ import { track } from '../../lib/analytics';
  */
 interface TestimonialVideosProps {
   locale: Locale;
-  /** Booking button under the videos. Label comes from the page (hero_cta), click scrolls to #book. */
+  /** Button under the videos. On the landing page it scrolls to #book; with `ctaTo` it is a route link instead. */
   cta?: { label: string; onClick: (e: React.MouseEvent) => void };
+  ctaTo?: string;
   /** Override the section heading (main-site test pages). When set, the subtitle is hidden. */
   heading?: string;
   /** Optional button under each video, by index (e.g. the service the patient had). Not used on the landing page. */
   links?: Array<{ label: string; to: string } | undefined>;
 }
 
-export default function TestimonialVideos({ locale, cta, heading, links }: TestimonialVideosProps) {
+export default function TestimonialVideos({ locale, cta, ctaTo, heading, links }: TestimonialVideosProps) {
   const [active, setActive] = useState<number | null>(null);
   const [current, setCurrent] = useState(0); // which slide is centered on mobile (for the dots)
   const itemRefs = useRef<Array<HTMLDivElement | null>>([]);
@@ -152,9 +153,15 @@ export default function TestimonialVideos({ locale, cta, heading, links }: Testi
         )}
         {cta && (
           <div className="mt-8 md:mt-10 text-center">
-            <a href="#book" onClick={cta.onClick} className="inline-block bg-pract-gold text-pract-black px-8 py-4 rounded-md text-lg font-bold hover:bg-pract-gold-hover transition-colors shadow-md w-full sm:w-auto">
-              {cta.label}
-            </a>
+            {ctaTo ? (
+              <Link to={ctaTo} className="inline-block bg-pract-gold text-pract-black px-8 py-4 rounded-md text-lg font-bold hover:bg-pract-gold-hover transition-colors shadow-md w-full sm:w-auto">
+                {cta.label}
+              </Link>
+            ) : (
+              <a href="#book" onClick={cta.onClick} className="inline-block bg-pract-gold text-pract-black px-8 py-4 rounded-md text-lg font-bold hover:bg-pract-gold-hover transition-colors shadow-md w-full sm:w-auto">
+                {cta.label}
+              </a>
+            )}
           </div>
         )}
 

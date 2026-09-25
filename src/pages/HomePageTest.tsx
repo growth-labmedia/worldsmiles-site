@@ -104,15 +104,7 @@ export default function HomePageTest() {
       </section>
 
       {/* PATIENT VIDEOS */}
-      {/* TODO: confirm which service each video is about; both currently link to the services overview. */}
-      <TestimonialVideos
-        locale="en"
-        heading="Hear from our patients"
-        links={[
-          { label: 'Our services', to: '/test/services' },
-          { label: 'Our services', to: '/test/services' },
-        ]}
-      />
+      <TestimonialVideos locale="en" heading="Hear from our patients" cta={{ label: 'Contact Us', onClick: () => {} }} ctaTo="/contact" />
 
       {/* RESULTS — three sliders, one per headline service */}
       <section className="bg-[#F7F3EC] py-14 md:py-20">
@@ -127,7 +119,7 @@ export default function HomePageTest() {
                 <div className="p-4 text-center">
                   <p className="font-[Fraunces,Georgia,serif] text-[1.0625rem] text-[#0A0A0A]">{r.label}</p>
                   <Link to={r.to} className="mt-3 inline-flex items-center gap-1.5 bg-[#C9A961] hover:bg-[#A8893F] text-[#0A0A0A] px-5 py-2.5 min-h-[44px] rounded-lg text-[0.9375rem] font-semibold transition-colors">
-                    About {r.label.toLowerCase()} <ArrowRight className="w-4 h-4" strokeWidth={1.75} />
+                    Learn more <ArrowRight className="w-4 h-4" strokeWidth={1.75} />
                   </Link>
                 </div>
               </div>
