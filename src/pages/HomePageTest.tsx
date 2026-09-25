@@ -15,7 +15,7 @@ import fmrAfter from '../assets/cases/case-03-fmr-after.jpg';
 
 /**
  * TEST homepage (/test). Not linked from nav/footer, noindex, excluded from the sitemap.
- * Direction (Dr. Furman, Sept 25): say "prosthodontist" immediately, pictures over words,
+ * Client direction (Sept 25): say "prosthodontist" immediately, pictures over words,
  * no comparisons to other dentists, "Contact Us" wording, under ~200 words of body copy.
  */
 const TILES = [
