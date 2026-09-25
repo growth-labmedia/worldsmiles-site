@@ -149,6 +149,9 @@ export default function HomePageTest() {
               </li>
             ))}
           </ol>
+          <div className="mt-10 text-center">
+            <Link to="/contact#form" className="inline-flex items-center justify-center bg-[#C9A961] hover:bg-[#A8893F] text-[#0A0A0A] px-8 py-3.5 min-h-[48px] rounded-lg text-[1rem] font-semibold transition-colors w-full sm:w-auto">Request an Appointment</Link>
+          </div>
         </div>
       </section>
 
