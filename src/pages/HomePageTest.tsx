@@ -23,7 +23,7 @@ const TILES = [
   { name: 'Full Mouth Reconstruction', caption: 'One coordinated plan', img: allOnXImg, to: '/test/services#full-mouth-reconstruction' },
   { name: 'Crowns & Bridges', caption: 'All-ceramic, same-day options', img: veneersDetailImg, to: '/test/services#crowns-bridges' }, // needs photo
   { name: 'Dentures', caption: 'Complete, partial, implant-supported', img: denturesImg, to: '/test/services#dentures' },
-  { name: 'Veneers', caption: 'Natural-looking porcelain', img: veneersImg, to: '/test/services#veneers' },
+  { name: 'Porcelain Veneers', caption: 'Natural-looking porcelain', img: veneersImg, to: '/test/services#veneers' },
   { name: 'Specialist Second Opinion', caption: 'Bring your treatment plan', img: scanImg, to: '/second-opinion' },
 ];
 

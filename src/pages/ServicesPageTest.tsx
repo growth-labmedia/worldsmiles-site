@@ -10,13 +10,11 @@ import denturesImg from '../assets/services/dentures-complete-hero.jpg';
 import denturesDetailImg from '../assets/services/dentures-complete-detail.jpg';
 import partialImg from '../assets/services/dentures-partial-hero.jpg';
 import overdenturesImg from '../assets/services/overdentures-hero.jpg';
-import roomImg from '../assets/office/dental-room.jpg';
 import room2Img from '../assets/office/dental-room-2.jpg';
-import scanImg from '../assets/office/3d-scan.jpg';
-import xrayImg from '../assets/office/3d-xray.jpg';
 
 /**
- * TEST services page (/test/services). Same anchors as ServicesPage.tsx, one sentence + up to
+ * TEST services page (/test/services). The nine services the office offers (client list, Sept 25), same
+ * anchors as ServicesPage.tsx, one sentence + up to
  * three bullets per service (facts carried over from the live page), one Contact button each.
  * Photos marked "placeholder" have no dedicated image yet — listed in the PR.
  */
@@ -32,45 +30,33 @@ interface Service {
 }
 
 const SERVICES: Service[] = [
-  { id: 'dental-implants', name: 'Dental Implants', caption: 'Single tooth to full arch', img: implantsImg, contactValue: 'dental-implants',
-    sentence: 'A titanium post that fuses to your jawbone and supports a crown, bridge, or full-arch restoration.',
-    bullets: ['Single, multiple, or All-on-4 / full-arch options', 'Restoration designed before the implant is placed', '3–6 months from placement to final restoration'] },
   { id: 'full-mouth-reconstruction', name: 'Full Mouth Reconstruction', caption: 'One coordinated plan', img: allOnXImg, placeholder: true, contactValue: 'full-mouth-reconstruction',
     sentence: 'A single written plan that combines implants, crowns, bridges, and sometimes veneers when many teeth need work at once.',
     bullets: ['Usually 6–12 months, staged across visits', 'Written plan with locked pricing at the start', 'Function and appearance preserved at every stage'] },
+  { id: 'dental-implants', name: 'Dental Implants', caption: 'Single tooth to full arch', img: implantsImg, contactValue: 'dental-implants',
+    sentence: 'A titanium post that fuses to your jawbone and supports a crown, bridge, or full-arch restoration.',
+    bullets: ['Single, multiple, or All-on-4 / full-arch options', 'Restoration designed before the implant is placed', '3–6 months from placement to final restoration'] },
+  { id: 'veneers', name: 'Porcelain Veneers', caption: 'Natural-looking porcelain', img: veneersImg, contactValue: 'veneers',
+    sentence: 'Thin custom porcelain shells bonded to the front of your teeth to change color, shape, and proportion.',
+    bullets: ['Individually designed, color and contour matched per tooth', 'Typically 2–3 visits to complete', 'Smile design completed before any prep work'] },
   { id: 'crowns-bridges', name: 'Crowns & Bridges', caption: 'All-ceramic, same-day options', img: veneersDetailImg, placeholder: true, contactValue: 'crowns-bridges',
     sentence: 'A crown covers a tooth too damaged for a filling; a bridge replaces missing teeth using neighboring teeth or implants as anchors.',
     bullets: ['All-ceramic, designed to match surrounding teeth', 'Same-day crowns available via CEREC for appropriate cases', 'Typical lifespan 15+ years with proper care'] },
-  { id: 'dentures', name: 'Dentures', caption: 'Custom complete dentures', img: denturesImg, contactValue: 'dentures',
+  { id: 'dentures', name: 'Removable Complete Dentures', caption: 'Custom-fit full dentures', img: denturesImg, contactValue: 'dentures',
     sentence: 'Complete dentures designed to your face, fitted for stability, and finished with materials that look like natural teeth.',
     bullets: ['Custom-fit to your face, not off a shelf', 'Bite verified before final fabrication', 'Adjustments and relines included in the first year'] },
-  { id: 'partial-dentures', name: 'Partial Dentures', caption: 'Around your natural teeth', img: partialImg, contactValue: 'partial-dentures',
+  { id: 'partial-dentures', name: 'Removable Partial Dentures', caption: 'Around your natural teeth', img: partialImg, contactValue: 'partial-dentures',
     sentence: 'A removable partial that replaces missing teeth while keeping the healthy ones you still have.',
     bullets: ['Metal-framework and flexible options', 'Custom-fit to your remaining teeth', 'Removable for cleaning, secure while wearing'] },
-  { id: 'overdentures', name: 'Implant-Supported Dentures', caption: 'Anchored, no adhesive', img: overdenturesImg, contactValue: 'overdentures',
+  { id: 'overdentures', name: 'Overdentures', caption: 'Implant-anchored, no adhesive', img: overdenturesImg, contactValue: 'overdentures',
     sentence: 'A denture that clips onto two to four implants instead of resting on the gums.',
     bullets: ['No slipping, no adhesive', 'Chewing force much higher than conventional dentures', 'Upper arch, lower arch, or both'] },
-  { id: 'veneers', name: 'Veneers', caption: 'Natural-looking porcelain', img: veneersImg, contactValue: 'veneers',
-    sentence: 'Thin custom porcelain shells bonded to the front of your teeth to change color, shape, and proportion.',
-    bullets: ['Individually designed, color and contour matched per tooth', 'Typically 2–3 visits to complete', 'Smile design completed before any prep work'] },
   { id: 'cosmetic-dentistry', name: 'Cosmetic Dentistry', caption: 'Smile design first', img: room2Img, placeholder: true, contactValue: 'cosmetic-dentistry',
     sentence: 'We plan the look first, then choose the procedures: whitening, bonding, contouring, veneers, or crown work.',
     bullets: ['Every case starts with smile design', 'Whitening, bonding, contouring, veneers, crown work', 'Designed to age gracefully, not to look uniform'] },
-  { id: 'restorative', name: 'Restorative Dentistry', caption: 'Multi-tooth coordinated care', img: denturesDetailImg, placeholder: true, contactValue: 'restorative-dentistry',
+  { id: 'restorative', name: 'Complex Restorative Dentistry', caption: 'Multi-tooth coordinated care', img: denturesDetailImg, placeholder: true, contactValue: 'restorative-dentistry',
     sentence: 'Coordinated care for cases that need more than one procedure to solve.',
     bullets: ['Multi-tooth, multi-procedure care under one specialist', 'Written plan with the sequencing explained', 'Coordination with other specialists when needed'] },
-  { id: 'sedation', name: 'Sedation Dentistry', caption: 'Optional, never required', img: roomImg, placeholder: true, contactValue: 'sedation',
-    sentence: 'Options for patients with dental anxiety, a strong gag reflex, or longer procedures.',
-    bullets: ['Nitrous oxide ("laughing gas") — mild, wears off in minutes', 'Oral conscious sedation — a prescribed pill before the visit', 'Discussed openly at the first consultation'] },
-  { id: 'tmj', name: 'TMJ & Bite', caption: 'Jaw pain, clicking, headaches', img: xrayImg, placeholder: true, contactValue: 'tmj',
-    sentence: 'Diagnosis and treatment for jaw pain, joint clicking, morning headaches, and worn-down teeth.',
-    bullets: ['Custom oral appliances and night guards', 'Bite analysis and adjustment when relevant', 'Often coordinated with restoration work'] },
-  { id: 'cleanings', name: 'Cleanings & Prevention', caption: 'Care for specialty work', img: scanImg, placeholder: true, contactValue: 'cleanings',
-    sentence: 'Routine and deep cleanings, with protocols for patients who have implants, crowns, or extensive restorative work.',
-    bullets: ['Routine six-month cleanings', 'Deep cleaning (scaling and root planing) when needed', 'Specialty protocols for implants and restorations'] },
-  { id: 'emergency', name: 'Emergency Care', caption: 'Same or next business day', img: room2Img, placeholder: true, contactValue: 'emergency',
-    sentence: 'Acute pain, a cracked tooth, a lost crown or filling, a knocked-out tooth, or an abscess — call as soon as possible.',
-    bullets: ['Call 347-378-7827 for immediate guidance', 'Same-day or next-business-day appointments', 'Pain management, temporary, or definitive treatment'] },
 ];
 
 export default function ServicesPageTest() {
