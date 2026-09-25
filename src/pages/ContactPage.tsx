@@ -82,7 +82,7 @@ export default function ContactPage() {
   return (
     <>
       
-      {/* SECTION 1: HERO + CONTACT METHOD CARDS */}
+      {/* SECTION 1: HERO (the form follows immediately) */}
       <section className="bg-[#F7F3EC] py-14 md:py-20">
         <div className="max-w-[1200px] mx-auto px-4 md:px-6">
           <div className="mb-12 max-w-[680px] mx-auto text-center">
@@ -93,55 +93,6 @@ export default function ContactPage() {
             <p className="mt-5 text-[1.125rem] md:text-[1.1875rem] leading-[1.65] text-[#5C5C5C]">
               Three ways to reach the practice. Pick whichever feels easiest. We answer during office hours and reply to messages first thing the next open day.
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {/* CARD 1 — PHONE */}
-            <div className="bg-white rounded-xl border border-[#E7E2D8] p-7 flex flex-col hover:shadow-md transition-shadow">
-              <div className="mb-5 w-12 h-12 rounded-lg bg-[#F7F3EC] flex items-center justify-center">
-                <Phone className="w-6 h-6 text-[#C9A961]" strokeWidth={1.75} />
-              </div>
-              <span className="text-[0.6875rem] uppercase tracking-[0.16em] font-semibold text-[#C9A961] mb-2">FASTEST</span>
-              <h2 className="text-[1.25rem] font-medium font-[Fraunces,Georgia,serif] text-[#0A0A0A] mb-3">Call us</h2>
-              <a href="tel:+13473787827" aria-label="Call World Smiles Prosthodontics at 347-378-7827" className="flex items-center min-h-[48px] font-[Fraunces,Georgia,serif] text-[1.5rem] font-medium text-[#C9A961] hover:text-[#A8893F] transition-colors mb-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A961] rounded">
-                347-378-7827
-              </a>
-              <p className="text-[0.875rem] text-[#5C5C5C] leading-[1.55] mt-auto pt-3 border-t border-[#E7E2D8]">
-                Office hours: Mon, Wed, Fri · 10am–5pm
-              </p>
-            </div>
-
-            {/* CARD 2 — FORM */}
-            <div className="bg-white rounded-xl border border-[#E7E2D8] p-7 flex flex-col hover:shadow-md transition-shadow">
-              <div className="mb-5 w-12 h-12 rounded-lg bg-[#F7F3EC] flex items-center justify-center">
-                <Mail className="w-6 h-6 text-[#C9A961]" strokeWidth={1.75} />
-              </div>
-              <span className="text-[0.6875rem] uppercase tracking-[0.16em] font-semibold text-[#C9A961] mb-2">MOST DETAILED</span>
-              <h2 className="text-[1.25rem] font-medium font-[Fraunces,Georgia,serif] text-[#0A0A0A] mb-3">Send a message</h2>
-              <p className="text-[0.9375rem] text-[#5C5C5C] leading-[1.6] mb-4">
-                Tell us a little about what you need. We reply within 1 business hour during office hours.
-              </p>
-              <a href="#contact-form" className="mt-auto pt-3 border-t border-[#E7E2D8] inline-flex items-center gap-1 text-[0.9375rem] font-semibold text-[#C9A961] hover:text-[#A8893F] group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A961] rounded">
-                Jump to form <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
-              </a>
-            </div>
-
-            {/* CARD 3 — VISIT */}
-            <div className="bg-white rounded-xl border border-[#E7E2D8] p-7 flex flex-col hover:shadow-md transition-shadow">
-              <div className="mb-5 w-12 h-12 rounded-lg bg-[#F7F3EC] flex items-center justify-center">
-                <MapPin className="w-6 h-6 text-[#C9A961]" strokeWidth={1.75} />
-              </div>
-              <span className="text-[0.6875rem] uppercase tracking-[0.16em] font-semibold text-[#C9A961] mb-2">IN PERSON</span>
-              <h2 className="text-[1.25rem] font-medium font-[Fraunces,Georgia,serif] text-[#0A0A0A] mb-3">Visit the office</h2>
-              <p className="text-[0.9375rem] text-[#1B1B1B] leading-[1.5] mb-4">
-                3121 Ocean Avenue, Suite 101<br/>
-                Brooklyn, NY 11235<br/>
-                <span className="text-[#5C5C5C] text-[0.875rem]">Sheepshead Bay · By appointment only</span>
-              </p>
-              <a href="https://maps.app.goo.gl/qRAkzom4Bis4Z44ZA" target="_blank" rel="noopener noreferrer" className="mt-auto pt-3 border-t border-[#E7E2D8] inline-flex items-center gap-1 text-[0.9375rem] font-semibold text-[#C9A961] hover:text-[#A8893F] group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A961] rounded">
-                Get directions <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
-              </a>
-            </div>
           </div>
         </div>
       </section>
@@ -321,6 +272,61 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 2b: OTHER WAYS TO REACH US (moved below the form — client request, Sept 25) */}
+      <section className="bg-[#F7F3EC] py-14 md:py-20">
+        <div className="max-w-[1200px] mx-auto px-4 md:px-6">
+          <h2 className="text-[0.8125rem] uppercase tracking-[0.14em] font-semibold text-[#C9A961] text-center mb-8">OTHER WAYS TO REACH US</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {/* CARD 1 — PHONE */}
+            <div className="bg-white rounded-xl border border-[#E7E2D8] p-7 flex flex-col hover:shadow-md transition-shadow">
+              <div className="mb-5 w-12 h-12 rounded-lg bg-[#F7F3EC] flex items-center justify-center">
+                <Phone className="w-6 h-6 text-[#C9A961]" strokeWidth={1.75} />
+              </div>
+              <span className="text-[0.6875rem] uppercase tracking-[0.16em] font-semibold text-[#C9A961] mb-2">FASTEST</span>
+              <h2 className="text-[1.25rem] font-medium font-[Fraunces,Georgia,serif] text-[#0A0A0A] mb-3">Call us</h2>
+              <a href="tel:+13473787827" aria-label="Call World Smiles Prosthodontics at 347-378-7827" className="flex items-center min-h-[48px] font-[Fraunces,Georgia,serif] text-[1.5rem] font-medium text-[#C9A961] hover:text-[#A8893F] transition-colors mb-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A961] rounded">
+                347-378-7827
+              </a>
+              <p className="text-[0.875rem] text-[#5C5C5C] leading-[1.55] mt-auto pt-3 border-t border-[#E7E2D8]">
+                Office hours: Mon, Wed, Fri · 10am–5pm
+              </p>
+            </div>
+
+            {/* CARD 2 — FORM */}
+            <div className="bg-white rounded-xl border border-[#E7E2D8] p-7 flex flex-col hover:shadow-md transition-shadow">
+              <div className="mb-5 w-12 h-12 rounded-lg bg-[#F7F3EC] flex items-center justify-center">
+                <Mail className="w-6 h-6 text-[#C9A961]" strokeWidth={1.75} />
+              </div>
+              <span className="text-[0.6875rem] uppercase tracking-[0.16em] font-semibold text-[#C9A961] mb-2">MOST DETAILED</span>
+              <h2 className="text-[1.25rem] font-medium font-[Fraunces,Georgia,serif] text-[#0A0A0A] mb-3">Send a message</h2>
+              <p className="text-[0.9375rem] text-[#5C5C5C] leading-[1.6] mb-4">
+                Tell us a little about what you need. We reply within 1 business hour during office hours.
+              </p>
+              <a href="#contact-form" className="mt-auto pt-3 border-t border-[#E7E2D8] inline-flex items-center gap-1 text-[0.9375rem] font-semibold text-[#C9A961] hover:text-[#A8893F] group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A961] rounded">
+                Jump to form <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
+              </a>
+            </div>
+
+            {/* CARD 3 — VISIT */}
+            <div className="bg-white rounded-xl border border-[#E7E2D8] p-7 flex flex-col hover:shadow-md transition-shadow">
+              <div className="mb-5 w-12 h-12 rounded-lg bg-[#F7F3EC] flex items-center justify-center">
+                <MapPin className="w-6 h-6 text-[#C9A961]" strokeWidth={1.75} />
+              </div>
+              <span className="text-[0.6875rem] uppercase tracking-[0.16em] font-semibold text-[#C9A961] mb-2">IN PERSON</span>
+              <h2 className="text-[1.25rem] font-medium font-[Fraunces,Georgia,serif] text-[#0A0A0A] mb-3">Visit the office</h2>
+              <p className="text-[0.9375rem] text-[#1B1B1B] leading-[1.5] mb-4">
+                3121 Ocean Avenue, Suite 101<br/>
+                Brooklyn, NY 11235<br/>
+                <span className="text-[#5C5C5C] text-[0.875rem]">Sheepshead Bay · By appointment only</span>
+              </p>
+              <a href="https://maps.app.goo.gl/qRAkzom4Bis4Z44ZA" target="_blank" rel="noopener noreferrer" className="mt-auto pt-3 border-t border-[#E7E2D8] inline-flex items-center gap-1 text-[0.9375rem] font-semibold text-[#C9A961] hover:text-[#A8893F] group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A961] rounded">
+                Get directions <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
+              </a>
             </div>
           </div>
         </div>
