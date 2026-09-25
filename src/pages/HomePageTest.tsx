@@ -51,20 +51,20 @@ export default function HomePageTest() {
   return (
     <>
       {/* HERO */}
-      <section className="bg-[#F7F3EC] py-12 md:py-16 lg:py-20">
+      <section className="bg-[#F7F3EC] pt-8 pb-8 md:pt-10 md:pb-10">
         <div className="max-w-[1100px] mx-auto px-4 md:px-6">
           <div className="text-center max-w-[820px] mx-auto">
             <span className="text-[0.75rem] md:text-[0.8125rem] uppercase tracking-[0.14em] font-semibold text-[#C9A961] block">BROOKLYN · SHEEPSHEAD BAY</span>
-            <h1 className="text-[2.25rem] md:text-[3.25rem] lg:text-[3.75rem] leading-[1.08] tracking-[-0.02em] font-[Fraunces,Georgia,serif] font-medium mt-4 text-[#0A0A0A]">
+            <h1 className="text-[2rem] md:text-[2.5rem] lg:text-[2.75rem] leading-[1.08] tracking-[-0.02em] font-[Fraunces,Georgia,serif] font-medium mt-3 text-[#0A0A0A]">
               Prosthodontist in Brooklyn.
             </h1>
-            <p className="mt-5 text-[1.0625rem] md:text-[1.25rem] leading-[1.55] text-[#1B1B1B] max-w-[52ch] mx-auto">
+            <p className="mt-3 text-[1rem] md:text-[1.0625rem] leading-[1.5] text-[#1B1B1B] max-w-[52ch] mx-auto">
               A dental specialist in implants, crowns, dentures and full-mouth reconstruction.
             </p>
           </div>
 
-          <div className="mt-8 md:mt-10">
-            <div className="relative w-full rounded-xl overflow-hidden shadow-xl bg-[#0A0A0A] mx-auto" style={{ aspectRatio: '16 / 9', maxWidth: '960px' }}>
+          <div className="mt-6">
+            <div className="relative w-full rounded-xl overflow-hidden shadow-lg bg-[#0A0A0A] mx-auto" style={{ aspectRatio: '16 / 9', maxWidth: '600px' }}>
               <iframe
                 src="https://iframe.mediadelivery.net/embed/731039/a0e63c69-e4e4-485d-a997-5427956cc4e9?autoplay=true&loop=true&muted=true&preload=true&responsive=true&controls=false"
                 className="absolute inset-0 w-full h-full"
@@ -77,7 +77,7 @@ export default function HomePageTest() {
           </div>
 
 
-          <div className="mt-7 md:mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[0.875rem] text-[#5C5C5C]">
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[0.8125rem] text-[#5C5C5C]">
             <span>NYU Certificate in Prosthodontics</span>
             <span className="text-[#C9A961]">·</span>
             <span>Russian spoken</span>
@@ -88,11 +88,11 @@ export default function HomePageTest() {
       </section>
 
       {/* SERVICES — photo tiles */}
-      <section className="bg-white py-14 md:py-20">
+      <section className="bg-white py-10 md:py-14">
         <div className="max-w-[1200px] mx-auto px-4 md:px-6">
           <span className="text-[0.8125rem] uppercase tracking-[0.14em] font-semibold text-[#C9A961] text-center block">WHAT A PROSTHODONTIST DOES</span>
           <h2 className="text-[1.875rem] md:text-[2.5rem] leading-[1.15] tracking-[-0.015em] font-[Fraunces,Georgia,serif] font-medium text-center mt-3 text-[#0A0A0A]">Our services</h2>
-          <div className="mt-10">
+          <div className="mt-8">
             <ServiceTileGrid tiles={TILES} />
           </div>
           <div className="mt-8 text-center">
