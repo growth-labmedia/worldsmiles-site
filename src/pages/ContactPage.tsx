@@ -83,7 +83,7 @@ export default function ContactPage() {
     <>
       
       {/* SECTION 1: HERO (the form follows immediately) */}
-      <section className="bg-[#F7F3EC] py-14 md:py-20">
+      <section className="bg-[#F7F3EC] pt-14 pb-8 md:pt-20 md:pb-10">
         <div className="max-w-[1200px] mx-auto px-4 md:px-6">
           <div className="mb-12 max-w-[680px] mx-auto text-center">
             <span className="text-[0.8125rem] uppercase tracking-[0.14em] font-semibold text-[#C9A961]">GET IN TOUCH</span>
