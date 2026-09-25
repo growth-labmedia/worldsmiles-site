@@ -12,6 +12,10 @@ import denturesImg from '../assets/services/dentures-complete-hero.jpg';
 import scanImg from '../assets/office/3d-scan.jpg';
 import fmrBefore from '../assets/cases/case-03-fmr-before.jpg';
 import fmrAfter from '../assets/cases/case-03-fmr-after.jpg';
+import implantsBefore from '../assets/cases/case-01-implants-before.jpg';
+import implantsAfter from '../assets/cases/case-01-implants-after.jpg';
+import veneersBefore from '../assets/cases/case-01-veneers-before.jpg';
+import veneersAfter from '../assets/cases/case-01-veneers-after.jpg';
 
 /**
  * TEST homepage (/test). Not linked from nav/footer, noindex, excluded from the sitemap.
@@ -25,6 +29,12 @@ const TILES = [
   { name: 'Dentures', caption: 'Complete, partial, implant-supported', img: denturesImg, to: '/test/services#dentures' },
   { name: 'Porcelain Veneers', caption: 'Natural-looking porcelain', img: veneersImg, to: '/test/services#veneers' },
   { name: 'Specialist Second Opinion', caption: 'Bring your treatment plan', img: scanImg, to: '/second-opinion' },
+];
+
+const RESULTS = [
+  { label: 'Full mouth reconstruction', before: fmrBefore, after: fmrAfter, beforeAlt: 'Before full mouth ceramic rehabilitation', afterAlt: 'After full mouth ceramic rehabilitation' },
+  { label: 'Dental implants', before: implantsBefore, after: implantsAfter, beforeAlt: 'Before: 7 implants with periodontal coordination', afterAlt: 'After: 7 implants with periodontal coordination' },
+  { label: 'Porcelain veneers', before: veneersBefore, after: veneersAfter, beforeAlt: 'Before: ceramic veneer reconstruction', afterAlt: 'After: ceramic veneer reconstruction' },
 ];
 
 const STEPS = [
@@ -102,21 +112,21 @@ export default function HomePageTest() {
       {/* PATIENT VIDEOS */}
       <TestimonialVideos locale="en" heading="Hear from our patients" />
 
-      {/* RESULTS — one slider */}
+      {/* RESULTS — three sliders, one per headline service */}
       <section className="bg-[#F7F3EC] py-14 md:py-20">
-        <div className="max-w-[720px] mx-auto px-4 md:px-6">
+        <div className="max-w-[1200px] mx-auto px-4 md:px-6">
           <span className="text-[0.8125rem] uppercase tracking-[0.14em] font-semibold text-[#C9A961] text-center block">RESULTS</span>
-          <h2 className="text-[1.875rem] md:text-[2.5rem] leading-[1.15] tracking-[-0.015em] font-[Fraunces,Georgia,serif] font-medium text-center mt-3 text-[#0A0A0A]">Full mouth reconstruction</h2>
-          <div className="mt-8 rounded-xl overflow-hidden border border-[#E7E2D8] bg-white">
-            <BeforeAfterSlider
-              beforeSrc={fmrBefore}
-              afterSrc={fmrAfter}
-              beforeAlt="Before full mouth ceramic rehabilitation"
-              afterAlt="After full mouth ceramic rehabilitation"
-            />
-            <p className="p-4 text-center text-[0.8125rem] text-[#5C5C5C]">Drag to compare · Used with patient consent</p>
+          <h2 className="text-[1.875rem] md:text-[2.5rem] leading-[1.15] tracking-[-0.015em] font-[Fraunces,Georgia,serif] font-medium text-center mt-3 text-[#0A0A0A]">Before and after</h2>
+          <p className="mt-3 text-center text-[0.9375rem] text-[#5C5C5C]">Drag to compare · Used with patient consent</p>
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+            {RESULTS.map((r) => (
+              <div key={r.label} className="rounded-xl overflow-hidden border border-[#E7E2D8] bg-white">
+                <BeforeAfterSlider beforeSrc={r.before} afterSrc={r.after} beforeAlt={r.beforeAlt} afterAlt={r.afterAlt} />
+                <p className="p-4 text-center font-[Fraunces,Georgia,serif] text-[1.0625rem] text-[#0A0A0A]">{r.label}</p>
+              </div>
+            ))}
           </div>
-          <div className="mt-6 text-center">
+          <div className="mt-8 text-center">
             <Link to="/before-after" className="inline-flex items-center gap-1.5 text-[#0A0A0A] hover:text-[#A8893F] text-[0.9375rem] font-semibold min-h-[48px]">
               See more results <ArrowRight className="w-4 h-4" strokeWidth={1.75} />
             </Link>
