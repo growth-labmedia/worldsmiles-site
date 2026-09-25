@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /landing
+
+Sitemap: https://www.worldsmilesnyc.com/sitemap.xml

@@ -14,7 +14,7 @@ export function usePageMeta(page: keyof typeof PAGE_META) {
     desc.content = m.description;
 
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-    if (canonical) canonical.href = `https://www.worldsmilesnyc.com${window.location.pathname === '/' ? '/' : window.location.pathname}`;
+    if (canonical) { const p = window.location.pathname.replace(/\/+$/, ''); canonical.href = `https://www.worldsmilesnyc.com${p || '/'}`; }
 
     const ID = 'page-jsonld';
     document.getElementById(ID)?.remove();

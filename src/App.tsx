@@ -18,10 +18,16 @@ import JournalPage from './pages/JournalPage';
 import AccessibilityPage from './pages/AccessibilityPage';
 import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
+import NotFoundPage from './pages/NotFoundPage';
+import { trackPageView } from './lib/analytics';
 
-// Scroll to top on route change; scroll to the anchor when a hash is present (e.g. /services#veneers).
-function ScrollManager() {
-  const { pathname, hash } = useLocation();
+// On route change: scroll to top (or to the hash anchor), fire a GA4 page_view, and strip WordPress-era ?p= query strings.
+function RouteEffects() {
+  const { pathname, hash, search } = useLocation();
+  useEffect(() => {
+    trackPageView(pathname);
+    if (/(^|[?&])p=\d+/.test(search)) window.history.replaceState(null, '', pathname);
+  }, [pathname, search]);
   useEffect(() => {
     if (hash) {
       const el = document.getElementById(hash.slice(1));
@@ -32,10 +38,11 @@ function ScrollManager() {
   return null;
 }
 
-export default function App() {
+/** Route table without a router, so the prerender script can wrap it in a StaticRouter. */
+export function AppRoutes() {
   return (
-    <BrowserRouter>
-      <ScrollManager />
+    <>
+      <RouteEffects />
       <Routes>
         {/* Standalone paid-traffic landing page: keeps its own header/footer, no site chrome */}
         <Route path="/landing" element={<LandingPage />} />
@@ -61,9 +68,17 @@ export default function App() {
           <Route path="accessibility" element={<AccessibilityPage />} />
           <Route path="privacy" element={<PrivacyPage />} />
           <Route path="terms" element={<TermsPage />} />
-          <Route path="*" element={<HomePage />} /> {/* 404 fallback */}
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppRoutes />
     </BrowserRouter>
   );
 }
