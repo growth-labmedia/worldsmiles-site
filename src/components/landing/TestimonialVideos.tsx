@@ -19,9 +19,11 @@ interface TestimonialVideosProps {
   locale: Locale;
   /** Booking button under the videos. Label comes from the page (hero_cta), click scrolls to #book. */
   cta?: { label: string; onClick: (e: React.MouseEvent) => void };
+  /** Override the section heading (main-site test pages). When set, the subtitle is hidden. */
+  heading?: string;
 }
 
-export default function TestimonialVideos({ locale, cta }: TestimonialVideosProps) {
+export default function TestimonialVideos({ locale, cta, heading }: TestimonialVideosProps) {
   const [active, setActive] = useState<number | null>(null);
   const [current, setCurrent] = useState(0); // which slide is centered on mobile (for the dots)
   const itemRefs = useRef<Array<HTMLDivElement | null>>([]);
@@ -61,9 +63,9 @@ export default function TestimonialVideos({ locale, cta }: TestimonialVideosProp
   return (
     <section className="py-20 px-4 md:px-8 bg-white border-t border-pract-sage/20">
       <div className="max-w-6xl mx-auto">
-        <span className="block text-center text-pract-gold font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3">{t(testimonialsCopy.eyebrow, locale)}</span>
-        <h2 className="text-center font-serif text-3xl md:text-4xl font-semibold mb-3 text-pract-charcoal">{t(testimonialsCopy.title, locale)}</h2>
-        <p className="text-center text-sm md:text-base text-pract-charcoal/70 max-w-xl mx-auto mb-10">{t(testimonialsCopy.subtitle, locale)}</p>
+        {!heading && <span className="block text-center text-pract-gold font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3">{t(testimonialsCopy.eyebrow, locale)}</span>}
+        <h2 className={`text-center font-serif text-3xl md:text-4xl font-semibold text-pract-charcoal ${heading ? 'mb-10' : 'mb-3'}`}>{heading ?? t(testimonialsCopy.title, locale)}</h2>
+        {!heading && <p className="text-center text-sm md:text-base text-pract-charcoal/70 max-w-xl mx-auto mb-10">{t(testimonialsCopy.subtitle, locale)}</p>}
 
         {/* Mobile: horizontal snap rail. Each slide is 82% wide so the next card peeks in from the edge,
             with side padding so the first and last slides still center. Dots below mirror the swipe.

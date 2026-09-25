@@ -1,10 +1,11 @@
-import { Outlet } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Outlet, Link, useLocation } from 'react-router-dom';
 import { Phone } from 'lucide-react';
 import Header from './Header';
 import Footer from './Footer';
 
 export default function Layout() {
+  const { pathname } = useLocation();
+  const ctaLabel = pathname === '/test' || pathname.startsWith('/test/') ? 'Contact Us' : 'Book Consultation';
   return (
     <div className="min-h-screen font-sans text-[#1B1B1B] bg-white antialiased flex flex-col selection:bg-[#C9A961]/30 selection:text-[#0A0A0A]">
       <Header />
@@ -19,7 +20,7 @@ export default function Layout() {
           <Phone className="w-4 h-4 pointer-events-none" strokeWidth={2} /> <span className="pointer-events-none">Call</span>
         </a>
         <Link to="/contact" className="inline-flex items-center justify-center bg-[#C9A961] text-[#0A0A0A] py-3 rounded-lg text-[0.9375rem] font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A961] focus-visible:ring-offset-2 focus-visible:ring-offset-white">
-          Book Consultation
+          {ctaLabel}
         </Link>
       </div>
     </div>

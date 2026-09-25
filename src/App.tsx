@@ -19,6 +19,8 @@ import AccessibilityPage from './pages/AccessibilityPage';
 import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
 import NotFoundPage from './pages/NotFoundPage';
+import HomePageTest from './pages/HomePageTest';
+import ServicesPageTest from './pages/ServicesPageTest';
 import { trackPageView } from './lib/analytics';
 
 // On route change: scroll to top (or to the hash anchor), fire a GA4 page_view, and strip WordPress-era ?p= query strings.
@@ -68,6 +70,9 @@ export function AppRoutes() {
           <Route path="accessibility" element={<AccessibilityPage />} />
           <Route path="privacy" element={<PrivacyPage />} />
           <Route path="terms" element={<TermsPage />} />
+          {/* TEST pages (noindex, not in sitemap, not linked). Remove or promote after the client review. */}
+          <Route path="test" element={<HomePageTest />} />
+          <Route path="test/services" element={<ServicesPageTest />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

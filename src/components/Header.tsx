@@ -17,6 +17,8 @@ export default function Header() {
   // Active-state detection — highlights the current page in nav and dropdown (reactive via React Router).
   const currentPath = useCurrentPath();
   const isPatientResourcesActive = PATIENT_RESOURCE_PATHS.includes(currentPath);
+  // Test pages (/test, /test/services) trial "Contact Us" CTA wording; live pages unchanged.
+  const ctaLabel = currentPath === '/test' || currentPath.startsWith('/test/') ? 'Contact Us' : 'Book Consultation';
 
   const closeMenus = () => {
     setMobileMenuOpen(false);
@@ -93,7 +95,7 @@ export default function Header() {
               <span className="hidden lg:inline pointer-events-none">347-378-7827</span>
             </a>
             <Link to="/contact" className="inline-flex items-center justify-center bg-[#C9A961] hover:bg-[#A8893F] text-[#0A0A0A] px-5 py-2.5 rounded-lg text-[0.9375rem] font-semibold transition-colors whitespace-nowrap">
-              Book Consultation
+              {ctaLabel}
             </Link>
           </div>
 
@@ -151,7 +153,7 @@ export default function Header() {
                 <Phone className="w-4 h-4 pointer-events-none" strokeWidth={2} /> <span className="pointer-events-none">Call 347-378-7827</span>
               </a>
               <Link to="/contact" onClick={closeMenus} className="inline-flex items-center justify-center bg-[#C9A961] hover:bg-[#A8893F] text-[#0A0A0A] px-6 py-3.5 rounded-lg text-[1rem] font-semibold">
-                Book Consultation
+                {ctaLabel}
               </Link>
             </div>
           </div>
