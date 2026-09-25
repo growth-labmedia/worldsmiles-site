@@ -88,7 +88,7 @@ export default function ContactPage() {
           <div className="mb-12 max-w-[680px] mx-auto text-center">
             <span className="text-[0.8125rem] uppercase tracking-[0.14em] font-semibold text-[#C9A961]">GET IN TOUCH</span>
             <h1 className="mt-4 text-[2.25rem] md:text-[3.5rem] leading-[1.08] tracking-[-0.02em] font-[Fraunces,Georgia,serif] font-medium text-[#0A0A0A]">
-              Let's talk.
+              Request an Appointment
             </h1>
             <p className="mt-5 text-[1.125rem] md:text-[1.1875rem] leading-[1.65] text-[#5C5C5C]">
               Three ways to reach the practice. Pick whichever feels easiest. We answer during office hours and reply to messages first thing the next open day.
