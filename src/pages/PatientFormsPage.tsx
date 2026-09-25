@@ -19,7 +19,7 @@ export default function PatientFormsPage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-4 items-center justify-center">
             <a 
-              href="https://patientviewer.com/WebFormsGWT/GWT/WebForms/WebForms.html?DOID=118416&RKID=41212&WSDID=206546WSDID=206546&NFID=206549&NFID=206552&NFID=206555NFID=206549WSDID=206546&NFID=206549&NFID=206552&NFID=206555NFID=206552WSDID=206546&NFID=206549&NFID=206552&NFID=206555NFID=206555"
+              href="https://patientviewer.com/WebFormsGWT/GWT/WebForms/WebForms.html?DOID=118416&RKID=41212&WSDID=206546&NFID=206549&NFID=206552&NFID=206555"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-[#C9A961] hover:bg-[#A8893F] text-[#0A0A0A] px-7 py-3.5 rounded-lg text-[1rem] font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-[#C9A961] focus:ring-offset-2 min-h-[48px]"
@@ -186,7 +186,7 @@ export default function PatientFormsPage() {
           
           <div className="mt-8">
             <a 
-              href="https://patientviewer.com/WebFormsGWT/GWT/WebForms/WebForms.html?DOID=118416&RKID=41212&WSDID=206546WSDID=206546&NFID=206549&NFID=206552&NFID=206555NFID=206549WSDID=206546&NFID=206549&NFID=206552&NFID=206555NFID=206552WSDID=206546&NFID=206549&NFID=206552&NFID=206555NFID=206555"
+              href="https://patientviewer.com/WebFormsGWT/GWT/WebForms/WebForms.html?DOID=118416&RKID=41212&WSDID=206546&NFID=206549&NFID=206552&NFID=206555"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-[#C9A961] hover:bg-[#A8893F] text-[#0A0A0A] px-7 py-3.5 rounded-lg text-[1rem] font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-[#C9A961] focus:ring-offset-2"
@@ -297,7 +297,7 @@ export default function PatientFormsPage() {
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 items-center justify-center">
             <a 
-              href="https://patientviewer.com/WebFormsGWT/GWT/WebForms/WebForms.html?DOID=118416&RKID=41212&WSDID=206546WSDID=206546&NFID=206549&NFID=206552&NFID=206555NFID=206549WSDID=206546&NFID=206549&NFID=206552&NFID=206555NFID=206552WSDID=206546&NFID=206549&NFID=206552&NFID=206555NFID=206555"
+              href="https://patientviewer.com/WebFormsGWT/GWT/WebForms/WebForms.html?DOID=118416&RKID=41212&WSDID=206546&NFID=206549&NFID=206552&NFID=206555"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-[#C9A961] hover:bg-[#A8893F] text-[#0A0A0A] px-7 py-3.5 rounded-lg text-[1rem] font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-[#C9A961] focus:ring-offset-2"
