@@ -356,6 +356,46 @@
       "permanent": true
     },
     {
+      "source": "/contact-us/directions-to-office/",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us/directions-to-office",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/sample-blog-post-:n/",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/sample-blog-post-:n",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/page/:n/",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/page/:n",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/mobile-help/",
+      "destination": "/accessibility",
+      "permanent": true
+    },
+    {
+      "source": "/mobile-help",
+      "destination": "/accessibility",
+      "permanent": true
+    },
+    {
       "source": "/wp-content/:path*",
       "destination": "/",
       "permanent": true
