@@ -434,17 +434,6 @@
       "source": "/services/:slug+",
       "destination": "/services",
       "permanent": true
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "query",
-          "key": "p"
-        }
-      ],
-      "destination": "/",
-      "permanent": true
     }
   ],
   "rewrites": [
