@@ -76,9 +76,9 @@ export default function HomePage() {
           </div>
 
 
-          {/* Desktop-only CTA under the video; on phones the sticky bar covers it */}
-          <div className="hidden lg:flex justify-center mt-4">
-            <Link to="/contact#form" className="inline-flex items-center justify-center bg-[#C9A961] hover:bg-[#A8893F] text-[#0A0A0A] px-7 py-3 min-h-[48px] rounded-lg text-[0.9375rem] font-semibold transition-colors">Request an Appointment</Link>
+          {/* CTA under the video on every screen size */}
+          <div className="flex justify-center mt-4">
+            <Link to="/contact#form" className="inline-flex items-center justify-center bg-[#C9A961] hover:bg-[#A8893F] text-[#0A0A0A] px-7 py-3 min-h-[48px] rounded-lg text-[0.9375rem] font-semibold transition-colors w-full sm:w-auto max-w-[440px]">Request an Appointment</Link>
           </div>
           <div className="mt-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[0.75rem] text-[#5C5C5C]">
             <span>NYU Certificate in Prosthodontics</span>
