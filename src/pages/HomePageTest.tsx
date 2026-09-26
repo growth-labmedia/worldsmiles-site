@@ -64,7 +64,7 @@ export default function HomePageTest() {
           </div>
 
           <div className="mt-6">
-            <div className="relative w-full rounded-xl overflow-hidden shadow-lg bg-[#0A0A0A] mx-auto" style={{ aspectRatio: '16 / 9', maxWidth: '600px' }}>
+            <div className="relative w-full rounded-xl overflow-hidden shadow-lg bg-[#0A0A0A] mx-auto" style={{ aspectRatio: '16 / 9', maxWidth: '540px' }}>
               <iframe
                 src="https://iframe.mediadelivery.net/embed/731039/a0e63c69-e4e4-485d-a997-5427956cc4e9?autoplay=true&loop=true&muted=true&preload=true&responsive=true&controls=false"
                 className="absolute inset-0 w-full h-full"
@@ -78,10 +78,10 @@ export default function HomePageTest() {
 
 
           {/* Desktop-only CTA under the video; on phones the sticky bar covers it */}
-          <div className="hidden lg:flex justify-center mt-6">
+          <div className="hidden lg:flex justify-center mt-5">
             <Link to="/contact#form" className="inline-flex items-center justify-center bg-[#C9A961] hover:bg-[#A8893F] text-[#0A0A0A] px-8 py-3.5 min-h-[48px] rounded-lg text-[1rem] font-semibold transition-colors">Request an Appointment</Link>
           </div>
-          <div className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[0.8125rem] text-[#5C5C5C]">
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[0.8125rem] text-[#5C5C5C]">
             <span>NYU Certificate in Prosthodontics</span>
             <span className="text-[#C9A961]">·</span>
             <span>Russian spoken</span>
