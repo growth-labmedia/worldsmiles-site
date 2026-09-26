@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Phone, Check, ArrowRight, ChevronDown, ChevronRight, ShieldCheck } from 'lucide-react';
+import { Phone, Check, ArrowRight, ChevronDown, ChevronRight } from 'lucide-react';
 import BeforeAfterSlider from './BeforeAfterSlider';
-import { PERFORMED_BY, SERVICES } from '../data/services';
+import { SERVICES } from '../data/services';
 import type { ServiceData } from '../data/services';
 
 const btnGold = 'inline-flex items-center justify-center bg-[#C9A961] hover:bg-[#A8893F] text-[#0A0A0A] px-7 py-3.5 min-h-[48px] rounded-lg text-[1rem] font-semibold transition-colors w-full sm:w-auto';
@@ -35,7 +35,6 @@ export default function ServicePageTemplate({ service: s }: { service: ServiceDa
             <span className={eyebrow}>PROSTHODONTIST · SHEEPSHEAD BAY · BROOKLYN</span>
             <h1 className="mt-3 text-[2rem] md:text-[2.75rem] leading-[1.08] tracking-[-0.02em] font-[Fraunces,Georgia,serif] font-medium text-[#0A0A0A]">{s.h1}</h1>
             <p className="mt-4 text-[1.0625rem] md:text-[1.125rem] leading-[1.6] text-[#1B1B1B]">{s.intro}</p>
-            <p className="mt-3 text-[0.9375rem] text-[#5C5C5C] flex items-start gap-2"><ShieldCheck className="w-4 h-4 mt-1 text-[#C9A961] shrink-0" strokeWidth={1.75} aria-hidden="true" /><span>{PERFORMED_BY}</span></p>
             <div className="mt-7 flex flex-col sm:flex-row gap-3">
               <Link to={contactHref} className={btnGold}>Request an appointment for {s.shortName}</Link>
               <a href="tel:+13473787827" aria-label="Call World Smiles Prosthodontics at 347-378-7827" className={btnOutline}><Phone className="w-4 h-4 pointer-events-none" strokeWidth={2} /> <span className="pointer-events-none">Call 347-378-7827</span></a>

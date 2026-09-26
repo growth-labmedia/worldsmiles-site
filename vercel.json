@@ -62,12 +62,12 @@
     },
     {
       "source": "/services/general-dental-services/",
-      "destination": "/services#cleanings",
+      "destination": "/services",
       "permanent": true
     },
     {
       "source": "/services/general-dental-services",
-      "destination": "/services#cleanings",
+      "destination": "/services",
       "permanent": true
     },
     {
@@ -112,22 +112,22 @@
     },
     {
       "source": "/services/sedation-dentistry/",
-      "destination": "/services#sedation",
+      "destination": "/services",
       "permanent": true
     },
     {
       "source": "/services/sedation-dentistry",
-      "destination": "/services#sedation",
+      "destination": "/services",
       "permanent": true
     },
     {
       "source": "/services/periodontal-services/",
-      "destination": "/services#cleanings",
+      "destination": "/services",
       "permanent": true
     },
     {
       "source": "/services/periodontal-services",
-      "destination": "/services#cleanings",
+      "destination": "/services",
       "permanent": true
     },
     {
@@ -142,12 +142,12 @@
     },
     {
       "source": "/services/treatment-of-tmj-disorders/",
-      "destination": "/services#tmj",
+      "destination": "/services",
       "permanent": true
     },
     {
       "source": "/services/treatment-of-tmj-disorders",
-      "destination": "/services#tmj",
+      "destination": "/services",
       "permanent": true
     },
     {
@@ -257,12 +257,12 @@
     },
     {
       "source": "/dental-emergencies/",
-      "destination": "/services#emergency",
+      "destination": "/services",
       "permanent": true
     },
     {
       "source": "/dental-emergencies",
-      "destination": "/services#emergency",
+      "destination": "/services",
       "permanent": true
     },
     {
