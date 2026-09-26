@@ -18,6 +18,8 @@ export default function Header() {
   // Active-state detection — highlights the current page in nav and dropdown (reactive via React Router).
   const currentPath = useCurrentPath();
   const isPatientResourcesActive = PATIENT_RESOURCE_PATHS.includes(currentPath);
+  const ctaLabel = 'Request Appointment';
+  const ctaTo = '/contact#form';
 
   const closeMenus = () => {
     setMobileMenuOpen(false);
@@ -118,8 +120,8 @@ export default function Header() {
               <Phone className="w-4 h-4 pointer-events-none" strokeWidth={2} />
               <span className="hidden lg:inline pointer-events-none">347-378-7827</span>
             </a>
-            <Link to="/contact" className="inline-flex items-center justify-center bg-[#C9A961] hover:bg-[#A8893F] text-[#0A0A0A] px-5 py-2.5 rounded-lg text-[0.9375rem] font-semibold transition-colors whitespace-nowrap">
-              Book Consultation
+            <Link to={ctaTo} className="inline-flex items-center justify-center bg-[#C9A961] hover:bg-[#A8893F] text-[#0A0A0A] px-5 py-2.5 rounded-lg text-[0.9375rem] font-semibold transition-colors whitespace-nowrap">
+              {ctaLabel}
             </Link>
           </div>
 
@@ -184,8 +186,8 @@ export default function Header() {
               <a href="tel:+13473787827" aria-label="Call World Smiles Prosthodontics at 347-378-7827" className="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white text-white px-6 py-3.5 rounded-lg text-[1rem] font-semibold min-h-[48px] min-w-[48px]">
                 <Phone className="w-4 h-4 pointer-events-none" strokeWidth={2} /> <span className="pointer-events-none">Call 347-378-7827</span>
               </a>
-              <Link to="/contact" onClick={closeMenus} className="inline-flex items-center justify-center bg-[#C9A961] hover:bg-[#A8893F] text-[#0A0A0A] px-6 py-3.5 rounded-lg text-[1rem] font-semibold">
-                Book Consultation
+              <Link to={ctaTo} onClick={closeMenus} className="inline-flex items-center justify-center bg-[#C9A961] hover:bg-[#A8893F] text-[#0A0A0A] px-6 py-3.5 rounded-lg text-[1rem] font-semibold">
+                {ctaLabel}
               </Link>
             </div>
           </div>

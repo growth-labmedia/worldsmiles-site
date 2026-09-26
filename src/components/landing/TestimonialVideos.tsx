@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import type React from 'react';
-import { Play, X } from 'lucide-react';
+import { Play, X, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { testimonials, testimonialsCopy } from '../../config/testimonials.config';
 import { t } from '../../config/qualification.config';
 import type { Locale } from '../../config/qualification.config';
@@ -17,11 +18,16 @@ import { track } from '../../lib/analytics';
  */
 interface TestimonialVideosProps {
   locale: Locale;
-  /** Booking button under the videos. Label comes from the page (hero_cta), click scrolls to #book. */
+  /** Button under the videos. On the landing page it scrolls to #book; with `ctaTo` it is a route link instead. */
   cta?: { label: string; onClick: (e: React.MouseEvent) => void };
+  ctaTo?: string;
+  /** Override the section heading (main-site test pages). When set, the subtitle is hidden. */
+  heading?: string;
+  /** Optional button under each video, by index (e.g. the service the patient had). Not used on the landing page. */
+  links?: Array<{ label: string; to: string } | undefined>;
 }
 
-export default function TestimonialVideos({ locale, cta }: TestimonialVideosProps) {
+export default function TestimonialVideos({ locale, cta, ctaTo, heading, links }: TestimonialVideosProps) {
   const [active, setActive] = useState<number | null>(null);
   const [current, setCurrent] = useState(0); // which slide is centered on mobile (for the dots)
   const itemRefs = useRef<Array<HTMLDivElement | null>>([]);
@@ -61,9 +67,9 @@ export default function TestimonialVideos({ locale, cta }: TestimonialVideosProp
   return (
     <section className="py-20 px-4 md:px-8 bg-white border-t border-pract-sage/20">
       <div className="max-w-6xl mx-auto">
-        <span className="block text-center text-pract-gold font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3">{t(testimonialsCopy.eyebrow, locale)}</span>
-        <h2 className="text-center font-serif text-3xl md:text-4xl font-semibold mb-3 text-pract-charcoal">{t(testimonialsCopy.title, locale)}</h2>
-        <p className="text-center text-sm md:text-base text-pract-charcoal/70 max-w-xl mx-auto mb-10">{t(testimonialsCopy.subtitle, locale)}</p>
+        {!heading && <span className="block text-center text-pract-gold font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3">{t(testimonialsCopy.eyebrow, locale)}</span>}
+        <h2 className={`text-center font-serif text-3xl md:text-4xl font-semibold text-pract-charcoal ${heading ? 'mb-10' : 'mb-3'}`}>{heading ?? t(testimonialsCopy.title, locale)}</h2>
+        {!heading && <p className="text-center text-sm md:text-base text-pract-charcoal/70 max-w-xl mx-auto mb-10">{t(testimonialsCopy.subtitle, locale)}</p>}
 
         {/* Mobile: horizontal snap rail. Each slide is 82% wide so the next card peeks in from the edge,
             with side padding so the first and last slides still center. Dots below mirror the swipe.
@@ -116,6 +122,11 @@ export default function TestimonialVideos({ locale, cta }: TestimonialVideosProp
                   </button>
                 )}
               </div>
+              {links?.[i] && (
+                <Link to={links[i]!.to} className="mt-3 inline-flex items-center gap-1.5 bg-[#C9A961] hover:bg-[#A8893F] text-[#0A0A0A] px-5 py-2.5 min-h-[44px] rounded-lg text-[0.9375rem] font-semibold transition-colors">
+                  {links[i]!.label} <ArrowRight className="w-4 h-4" strokeWidth={1.75} />
+                </Link>
+              )}
               {v.pullQuote && (
                 <p className="mt-3 max-w-[320px] text-center font-serif italic text-base text-pract-charcoal/85 leading-snug">“{t(v.pullQuote, locale)}”</p>
               )}
@@ -142,9 +153,15 @@ export default function TestimonialVideos({ locale, cta }: TestimonialVideosProp
         )}
         {cta && (
           <div className="mt-8 md:mt-10 text-center">
-            <a href="#book" onClick={cta.onClick} className="inline-block bg-pract-gold text-pract-black px-8 py-4 rounded-md text-lg font-bold hover:bg-pract-gold-hover transition-colors shadow-md w-full sm:w-auto">
-              {cta.label}
-            </a>
+            {ctaTo ? (
+              <Link to={ctaTo} className="inline-block bg-pract-gold text-pract-black px-8 py-4 rounded-md text-lg font-bold hover:bg-pract-gold-hover transition-colors shadow-md w-full sm:w-auto">
+                {cta.label}
+              </Link>
+            ) : (
+              <a href="#book" onClick={cta.onClick} className="inline-block bg-pract-gold text-pract-black px-8 py-4 rounded-md text-lg font-bold hover:bg-pract-gold-hover transition-colors shadow-md w-full sm:w-auto">
+                {cta.label}
+              </a>
+            )}
           </div>
         )}
 

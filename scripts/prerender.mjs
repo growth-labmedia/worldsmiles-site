@@ -41,6 +41,8 @@ const ROUTES = {
   '/landing/book': 'LandingBookPage',
   '/landing/insurance': 'LandingInsurancePage',
 };
+// Routes that must not be indexed (paid-traffic landing pages).
+const NOINDEX = (route) => route.startsWith('/landing');
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 const { render, PAGE_META } = await import(pathToFileURL(path.join(SSR_DIR, 'entry-server.js')).href);
@@ -66,7 +68,7 @@ function buildHead(head, route, meta) {
     const ld = meta.jsonLd ? `<script type="application/ld+json" id="page-jsonld">${meta.jsonLd.replace(/<\/script/gi, '<\\/script')}</script>` : '';
     rep(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, ld, 'json-ld');
   }
-  if (route.startsWith('/landing')) rep(/<meta name="robots" content="[^"]*" \/>/, '<meta name="robots" content="noindex, nofollow" />', 'robots');
+  if (NOINDEX(route)) rep(/<meta name="robots" content="[^"]*" \/>/, '<meta name="robots" content="noindex, nofollow" />', 'robots');
   return head;
 }
 
