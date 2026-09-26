@@ -45,8 +45,6 @@ export interface ServiceData {
   procedureDescription: string; // for MedicalProcedure JSON-LD
 }
 
-const BY_DR = 'Performed by an NYU-trained prosthodontist. Russian spoken.';
-export const PERFORMED_BY = BY_DR;
 
 export const SERVICES: ServiceData[] = [
   {

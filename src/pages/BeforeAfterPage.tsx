@@ -160,7 +160,7 @@ export default function BeforeAfterPage() {
           <div className="mb-14">
             <div className="mb-7 flex items-end justify-between gap-4 pb-4 border-b border-[#E7E2D8]">
               <h3 className="text-[1.375rem] md:text-[1.5rem] font-medium text-[#0A0A0A]">Dental Implants</h3>
-              <Link to="/services#dental-implants" className="text-[0.875rem] text-[#5C5C5C] hover:text-[#C9A961] transition-colors whitespace-nowrap">Learn about implants →</Link>
+              <Link to="/services/dental-implants" className="text-[0.875rem] text-[#5C5C5C] hover:text-[#C9A961] transition-colors whitespace-nowrap">Learn about implants →</Link>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
               {/* Case 1 */}
@@ -205,7 +205,7 @@ export default function BeforeAfterPage() {
           <div className="mb-14">
             <div className="mb-7 flex items-end justify-between gap-4 pb-4 border-b border-[#E7E2D8]">
               <h3 className="text-[1.375rem] md:text-[1.5rem] font-medium text-[#0A0A0A]">Porcelain Veneers</h3>
-              <Link to="/services#veneers" className="text-[0.875rem] text-[#5C5C5C] hover:text-[#C9A961] transition-colors whitespace-nowrap">Learn about veneers →</Link>
+              <Link to="/services/veneers" className="text-[0.875rem] text-[#5C5C5C] hover:text-[#C9A961] transition-colors whitespace-nowrap">Learn about veneers →</Link>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
               {/* Case 1 */}
@@ -250,7 +250,7 @@ export default function BeforeAfterPage() {
           <div className="mb-14">
             <div className="mb-7 flex items-end justify-between gap-4 pb-4 border-b border-[#E7E2D8]">
               <h3 className="text-[1.375rem] md:text-[1.5rem] font-medium text-[#0A0A0A]">Full Mouth Reconstruction</h3>
-              <Link to="/services#full-mouth-reconstruction" className="text-[0.875rem] text-[#5C5C5C] hover:text-[#C9A961] transition-colors whitespace-nowrap">Learn about full mouth reconstruction →</Link>
+              <Link to="/services/full-mouth-reconstruction" className="text-[0.875rem] text-[#5C5C5C] hover:text-[#C9A961] transition-colors whitespace-nowrap">Learn about full mouth reconstruction →</Link>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
               {/* Case 1 */}
