@@ -63,7 +63,7 @@ export const translations = {
     ru_welcome_ru_body: "Мы понимаем, как важно обсуждать свое здоровье на родном языке. Мы гордимся тем, что предлагаем полные консультации и лечение на русском языке для всех жителей Брайтон-Бич.",
 
     // About
-    about_name: "Dr. Lior Furman, DMD",
+    about_name: "NYU-Trained Prosthodontist",
     about_sub: "Board-Trained Prosthodontist · 20+ Years",
     about_p1: "My philosophy is simple: save the tooth whenever possible. For over two decades, I've focused my practice on cases that require a specialist's touch—full-mouth restorations, complex bite issues, and second opinions.",
     about_p2: "Patients often come to me feeling frustrated after receiving conflicting advice. My goal during your $147 session is to cut through the confusion, show you exactly what is happening in your mouth on our 3D screens, and give you a definitive path forward.",
@@ -161,7 +161,7 @@ export const translations = {
     ru_welcome_ru_body: "Мы понимаем, как важно обсуждать свое здоровье на родном языке. Мы гордимся тем, что предлагаем полные консультации и лечение на 100% русском языке. Вы будете понимать каждый шаг вашего лечения.",
 
     // About
-    about_name: "Д-р Лиор Фурман, DMD",
+    about_name: "Простодонт, обучение в NYU",
     about_sub: "Сертифицированный простодонт · Более 20 лет",
     about_p1: "Моя философия проста: спасти зуб всегда, когда это возможно. Более 20 лет я занимаюсь сложными случаями, требующими руки специалиста.",
     about_p2: "Пациенты часто приходят ко мне уставшими после противоречивых рекомендаций. Моя цель на консультации за $147 — всё прояснить, показать реальную картину на 3D-экране и дать вам четкий путь.",

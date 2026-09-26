@@ -368,7 +368,7 @@ export default function BeforeAfterPage() {
             <div className="bg-[#1B1B1B] border border-[#2A2A2A] rounded-xl p-7 flex flex-col">
               <Quote className="w-7 h-7 text-[#C9A961]" strokeWidth={1.5} />
               <blockquote className="mt-5 italic text-[1rem] leading-[1.6] text-[#F7F3EC] flex-grow">
-                "Dr. Furman is unlike any other dentist I've visited. I went to two other doctors and they both told me my tooth must be removed. Dr. Furman did a root canal instead and saved my tooth."
+                "The doctor here is unlike any other dentist I've visited. I went to two other doctors and they both told me my tooth must be removed. He did a root canal instead and saved my tooth."
               </blockquote>
               <div className="mt-6 flex gap-1">
                 <Star className="w-4 h-4 fill-[#C9A961] text-[#C9A961]" strokeWidth={1.75} />
@@ -383,7 +383,7 @@ export default function BeforeAfterPage() {
             <div className="bg-[#1B1B1B] border border-[#2A2A2A] rounded-xl p-7 flex flex-col">
               <Quote className="w-7 h-7 text-[#C9A961]" strokeWidth={1.5} />
               <blockquote className="mt-5 italic text-[1rem] leading-[1.6] text-[#F7F3EC] flex-grow">
-                "After decades of paying for expensive dental procedures and being dissatisfied, I was blessed to have found Dr. Furman."
+                "After decades of paying for expensive dental procedures and being dissatisfied, I was blessed to have found World Smiles."
               </blockquote>
               <div className="mt-6 flex gap-1">
                 <Star className="w-4 h-4 fill-[#C9A961] text-[#C9A961]" strokeWidth={1.75} />

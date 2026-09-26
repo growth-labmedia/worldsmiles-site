@@ -880,7 +880,7 @@ export default function ServicesPage() {
                 <ChevronDown className="w-5 h-5 text-[#C9A961] shrink-0 transition-transform group-open:rotate-180" />
               </summary>
               <div className="px-5 md:px-6 pb-5 md:pb-6 text-[#5C5C5C] leading-[1.65] text-[1rem]">
-                We see adult patients across the full range described on this page. If you're considering bringing a parent, spouse, or adult child — or if you're seeing us yourself and want to bring a parent for a separate appointment — we treat each person as their own case. Dr. Furman speaks Russian, which several of our multigenerational families have told us was the gating reason their parents agreed to be seen at all.
+                We see adult patients across the full range described on this page. If you're considering bringing a parent, spouse, or adult child — or if you're seeing us yourself and want to bring a parent for a separate appointment — we treat each person as their own case. The doctor speaks Russian, which several of our multigenerational families have told us was the gating reason their parents agreed to be seen at all.
               </div>
             </details>
           </div>

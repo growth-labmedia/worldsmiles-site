@@ -18,7 +18,7 @@ export default function SecondOpinionPage() {
             The Specialist Second Opinion Session.
           </h1>
           <p className="mt-6 text-[1.125rem] md:text-[1.1875rem] leading-[1.65] text-[#5C5C5C] max-w-[58ch] mx-auto">
-            A dedicated sixty-minute appointment with Dr. Furman, NYU-trained prosthodontist, to make sense of treatment plans you've already received. Bring whatever paperwork you have — quotes, X-rays, notes. Leave with one coherent specialist read in writing.
+            A dedicated sixty-minute appointment with an NYU-trained prosthodontist, to make sense of treatment plans you've already received. Bring whatever paperwork you have — quotes, X-rays, notes. Leave with one coherent specialist read in writing.
           </p>
           <div className="mt-8 flex flex-wrap gap-3 justify-center items-center">
             <Link 
@@ -247,7 +247,7 @@ export default function SecondOpinionPage() {
             <div className="bg-[#0A0A0A] rounded-xl p-7 md:p-8 text-white">
               <Quote className="w-8 h-8 text-[#C9A961]" strokeWidth={1.5} />
               <p className="mt-5 font-[Fraunces,Georgia,serif] italic text-[1.125rem] md:text-[1.25rem] leading-[1.5]">
-                "Dr. Furman is unlike any other dentist I've visited. I went to two other doctors and they both told me my tooth must be removed. Dr. Furman did a root canal instead and saved my tooth."
+                "The doctor here is unlike any other dentist I've visited. I went to two other doctors and they both told me my tooth must be removed. He did a root canal instead and saved my tooth."
               </p>
               <div className="mt-6 pt-5 border-t border-[#2A2A2A]">
                 <span className="text-[0.8125rem] text-[#DBC089] uppercase tracking-[0.14em] font-semibold block">
@@ -279,7 +279,7 @@ export default function SecondOpinionPage() {
             <div>
               <span className="font-[Fraunces,Georgia,serif] text-[3rem] leading-none font-medium text-[#C9A961] block">01</span>
               <h4 className="mt-3 text-[1.25rem] leading-[1.3] font-[Fraunces,Georgia,serif] font-medium text-[#0A0A0A]">You arrive with whatever you have.</h4>
-              <p className="mt-2 text-[#5C5C5C] text-[0.875rem] leading-[1.55]">X-rays from the last dentist, the treatment plan with the numbers that didn't add up, photos you took of your own mouth, notes you wrote at the kitchen table. All of it is useful. Some of it Dr. Furman has seen before. Some of it he hasn't. He'll look at all of it.</p>
+              <p className="mt-2 text-[#5C5C5C] text-[0.875rem] leading-[1.55]">X-rays from the last dentist, the treatment plan with the numbers that didn't add up, photos you took of your own mouth, notes you wrote at the kitchen table. All of it is useful. Some of it the doctor has seen before. Some of it he hasn't. He'll look at all of it.</p>
             </div>
 
             <div>
@@ -291,7 +291,7 @@ export default function SecondOpinionPage() {
             <div>
               <span className="font-[Fraunces,Georgia,serif] text-[3rem] leading-none font-medium text-[#C9A961] block">03</span>
               <h4 className="mt-3 text-[1.25rem] leading-[1.3] font-[Fraunces,Georgia,serif] font-medium text-[#0A0A0A]">We sit upright and talk.</h4>
-              <p className="mt-2 text-[#5C5C5C] text-[0.875rem] leading-[1.55]">Dr. Furman walks through what he sees, including what the other dentists got right and where his read differs. You ask whatever questions you want. Family members in the room are welcome. If you'd prefer the conversation in Russian, that's fine too.</p>
+              <p className="mt-2 text-[#5C5C5C] text-[0.875rem] leading-[1.55]">The doctor walks through what he sees, including what the other dentists got right and where his read differs. You ask whatever questions you want. Family members in the room are welcome. If you'd prefer the conversation in Russian, that's fine too.</p>
             </div>
 
             <div>
@@ -317,7 +317,7 @@ export default function SecondOpinionPage() {
             <div className="bg-[#1B1B1B] border border-[#2A2A2A] rounded-xl p-7 flex flex-col">
               <Quote className="w-7 h-7 text-[#C9A961]" strokeWidth={1.5} />
               <p className="mt-5 font-[Fraunces,Georgia,serif] italic text-[1rem] leading-[1.6] text-[#F7F3EC] flex-grow">
-                "After decades of paying for expensive dental procedures and being dissatisfied, I was blessed to have found Dr. Furman."
+                "After decades of paying for expensive dental procedures and being dissatisfied, I was blessed to have found World Smiles."
               </p>
               <div className="mt-6 flex gap-1">
                 <Star className="w-4 h-4 fill-[#C9A961] text-[#C9A961]" strokeWidth={1.75} />
@@ -425,7 +425,7 @@ export default function SecondOpinionPage() {
                 <ChevronDown className="w-5 h-5 text-[#C9A961] shrink-0 transition-transform group-open:rotate-180" />
               </summary>
               <div className="px-5 md:px-6 pb-5 md:pb-6 text-[#5C5C5C] leading-[1.65] text-[1rem]">
-                Yes. Many patients bring a family member, especially for longer or more complex plans. We have room in the consultation space for one additional person. If you'd prefer the conversation in Russian, Dr. Furman speaks it fluently.
+                Yes. Many patients bring a family member, especially for longer or more complex plans. We have room in the consultation space for one additional person. If you'd prefer the conversation in Russian, the doctor speaks it fluently.
               </div>
             </details>
 

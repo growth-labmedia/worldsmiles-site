@@ -3,7 +3,7 @@
  * Only the keys listed here differ from the self-pay page; everything else falls through
  * to lib/translations.ts. Both locales are required per key (TypeScript enforces it).
  *
- * COPY PENDING REVIEW — written to match the $147 page's structure; Shaun/Dr. Furman to confirm.
+ * COPY PENDING REVIEW — written to match the $147 page's structure; Shaun/the client to confirm.
  */
 import type { translations } from '../lib/translations';
 

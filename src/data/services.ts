@@ -123,7 +123,7 @@ export const SERVICES: ServiceData[] = [
       { q: 'How much does a full-arch (All-on-X) restoration cost?', a: 'Full-arch solutions are priced separately from single implants. Your consultation includes a written plan with locked-in pricing for your exact case.' },
       { q: 'What is the difference between All-on-X and an overdenture?', a: 'All-on-X replaces an entire arch on four to six implants. An overdenture clips onto two to four implants instead of resting on the gums, is removable for cleaning, and needs no adhesive. Which fits depends on your case and is discussed at the consultation.' },
       { q: 'How long does it take?', a: 'For implants, 3–6 months from placement to the final restoration is typical. Your written plan gives the timeline for a full-arch case.' },
-      { q: 'Will I have teeth while the implants heal?', a: 'TODO(client): confirm whether a temporary arch is worn during healing and how that is staged.', todo: true },
+      // TODO(client): add "Will I have teeth while the implants heal?" once the staging is confirmed.
     ],
     related: ['dental-implants', 'dentures', 'full-mouth-reconstruction'],
     meta: {
@@ -164,7 +164,7 @@ export const SERVICES: ServiceData[] = [
       { q: 'What is the difference between a complete and a partial denture?', a: 'A complete denture replaces a full upper or lower arch. A partial replaces missing teeth while keeping the healthy ones you still have, with metal-framework or flexible options.' },
       { q: 'Can my denture be anchored to implants?', a: 'Yes. An overdenture clips onto two to four implants instead of resting on the gums: no slipping, no adhesive, and chewing force significantly higher than a conventional denture. It stays removable for cleaning.' },
       { q: 'Are adjustments included?', a: 'Adjustments and relines are included in the first year.' },
-      { q: 'How long do dentures last?', a: 'TODO(client): typical lifespan of a complete or partial denture and when a reline or replacement is usually needed.', todo: true },
+      // TODO(client): add "How long do dentures last?" once typical lifespan / reline timing is confirmed.
     ],
     related: ['all-on-x', 'dental-implants', 'full-mouth-reconstruction'],
     meta: {
