@@ -449,6 +449,26 @@
       "source": "/:path*/feed/",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/test",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/test/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/test/services",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/test/services/",
+      "destination": "/services",
+      "permanent": true
     }
   ],
   "rewrites": [
