@@ -30,18 +30,16 @@ export default function ServicePageTemplate({ service: s }: { service: ServiceDa
 
       {/* HERO */}
       <section className="bg-[#F7F3EC] py-10 md:py-16">
-        <div className="max-w-[1100px] mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <div>
-            <span className={eyebrow}>PROSTHODONTIST · SHEEPSHEAD BAY · BROOKLYN</span>
-            <h1 className="mt-3 text-[2rem] md:text-[2.75rem] leading-[1.08] tracking-[-0.02em] font-[Fraunces,Georgia,serif] font-medium text-[#0A0A0A]">{s.h1}</h1>
-            <p className="mt-4 text-[1.0625rem] md:text-[1.125rem] leading-[1.6] text-[#1B1B1B]">{s.intro}</p>
-            <div className="mt-7 flex flex-col sm:flex-row gap-3">
-              <Link to={contactHref} className={btnGold}>Request an appointment for {s.shortName}</Link>
-              <a href="tel:+13473787827" aria-label="Call World Smiles Prosthodontics at 347-378-7827" className={btnOutline}><Phone className="w-4 h-4 pointer-events-none" strokeWidth={2} /> <span className="pointer-events-none">Call 347-378-7827</span></a>
-            </div>
+        <div className="max-w-[820px] mx-auto px-4 md:px-6 text-center">
+          <span className={eyebrow}>PROSTHODONTIST · SHEEPSHEAD BAY · BROOKLYN</span>
+          <h1 className="mt-3 text-[2rem] md:text-[2.75rem] leading-[1.08] tracking-[-0.02em] font-[Fraunces,Georgia,serif] font-medium text-[#0A0A0A]">{s.h1}</h1>
+          <p className="mt-4 text-[1.0625rem] md:text-[1.125rem] leading-[1.6] text-[#1B1B1B] max-w-[60ch] mx-auto">{s.intro}</p>
+          <div className="mt-7 rounded-xl overflow-hidden border border-[#E7E2D8] bg-white">
+            <img src={s.hero.src} alt={s.hero.alt} className="w-full h-auto aspect-[4/3] md:aspect-[16/10] object-cover" />
           </div>
-          <div className="rounded-xl overflow-hidden border border-[#E7E2D8] bg-white">
-            <img src={s.hero.src} alt={s.hero.alt} className="w-full h-auto aspect-[4/3] object-cover" />
+          <div className="mt-6 flex flex-col sm:flex-row sm:justify-center gap-3">
+            <Link to={contactHref} className={btnGold}>Request an appointment for {s.shortName}</Link>
+            <a href="tel:+13473787827" aria-label="Call World Smiles Prosthodontics at 347-378-7827" className={btnOutline}><Phone className="w-4 h-4 pointer-events-none" strokeWidth={2} /> <span className="pointer-events-none">Call 347-378-7827</span></a>
           </div>
         </div>
       </section>
