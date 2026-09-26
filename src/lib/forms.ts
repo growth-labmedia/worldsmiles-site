@@ -1,3 +1,4 @@
+import { trackGenerateLead } from './analytics';
 // Formspree endpoints. Replace the REPLACE_ME ids with the form ids from formspree.io (Form → Integration → endpoint URL).
 // While an endpoint still says REPLACE_ME, submissions fail gracefully and the user sees the call-us fallback.
 export const FORMSPREE_CONTACT_ENDPOINT = 'https://formspree.io/f/myeyjdpk';
@@ -17,7 +18,10 @@ export async function submitToFormspree(endpoint: string, data: Record<string, s
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify(data),
     });
-    if (res.ok) return { ok: true };
+    if (res.ok) {
+      trackGenerateLead(endpoint === FORMSPREE_SUBSCRIBE_ENDPOINT ? 'subscribe' : 'contact');
+      return { ok: true };
+    }
     let message = `Request failed (${res.status})`;
     try {
       const body = await res.json();
