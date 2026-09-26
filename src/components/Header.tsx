@@ -13,6 +13,7 @@ export function useCurrentPath() {
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [patientResourcesOpen, setPatientResourcesOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   // Active-state detection — highlights the current page in nav and dropdown (reactive via React Router).
   const currentPath = useCurrentPath();
@@ -21,12 +22,15 @@ export default function Header() {
   const closeMenus = () => {
     setMobileMenuOpen(false);
     setPatientResourcesOpen(false);
+    setServicesOpen(false);
   };
+  const isServicesActive = currentPath === '/services' || currentPath.startsWith('/services/');
 
   // Safety net: close menus whenever the route changes.
   useEffect(() => {
     setMobileMenuOpen(false);
     setPatientResourcesOpen(false);
+    setServicesOpen(false);
   }, [currentPath]);
 
   return (
@@ -48,7 +52,29 @@ export default function Header() {
 
           <nav className="hidden xl:flex items-center gap-4 ml-8" aria-label="Primary">
             <Link to="/" className={`text-[0.875rem] font-medium transition-colors whitespace-nowrap ${currentPath === '/' ? 'text-[#C9A961]' : 'text-white hover:text-[#C9A961]'}`}>Home</Link>
-            <Link to="/services" className={`text-[0.875rem] font-medium transition-colors whitespace-nowrap ${currentPath === '/services' ? 'text-[#C9A961]' : 'text-white hover:text-[#C9A961]'}`}>Services</Link>
+            <div
+              className="relative"
+              onMouseEnter={() => setServicesOpen(true)}
+              onMouseLeave={() => setServicesOpen(false)}
+            >
+              <Link to="/services" aria-expanded={servicesOpen} aria-haspopup="true" className={`flex items-center gap-1 text-[0.875rem] font-medium transition-colors whitespace-nowrap ${isServicesActive ? 'text-[#C9A961]' : 'text-white hover:text-[#C9A961]'}`}>
+                Services
+                <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} strokeWidth={2} />
+              </Link>
+              {servicesOpen && (
+                <div className="absolute top-full left-0 mt-0 pt-2 w-64 z-50">
+                  <div className="bg-[#0A0A0A] border border-[#2A2A2A] rounded-lg shadow-xl overflow-hidden">
+                    <Link to="/services/dental-implants" onClick={closeMenus} className={`block px-4 py-3 text-[0.9375rem] transition-colors border-b border-[#1B1B1B] ${currentPath === '/services/dental-implants' ? 'text-[#C9A961] bg-[#1B1B1B]' : 'text-white hover:text-[#C9A961] hover:bg-[#1B1B1B]'}`}>Dental Implants</Link>
+                    <Link to="/services/all-on-x" onClick={closeMenus} className={`block px-4 py-3 text-[0.9375rem] transition-colors border-b border-[#1B1B1B] ${currentPath === '/services/all-on-x' ? 'text-[#C9A961] bg-[#1B1B1B]' : 'text-white hover:text-[#C9A961] hover:bg-[#1B1B1B]'}`}>All-on-X Full-Arch Implants</Link>
+                    <Link to="/services/dentures" onClick={closeMenus} className={`block px-4 py-3 text-[0.9375rem] transition-colors border-b border-[#1B1B1B] ${currentPath === '/services/dentures' ? 'text-[#C9A961] bg-[#1B1B1B]' : 'text-white hover:text-[#C9A961] hover:bg-[#1B1B1B]'}`}>Dentures</Link>
+                    <Link to="/services/full-mouth-reconstruction" onClick={closeMenus} className={`block px-4 py-3 text-[0.9375rem] transition-colors border-b border-[#1B1B1B] ${currentPath === '/services/full-mouth-reconstruction' ? 'text-[#C9A961] bg-[#1B1B1B]' : 'text-white hover:text-[#C9A961] hover:bg-[#1B1B1B]'}`}>Full Mouth Reconstruction</Link>
+                    <Link to="/services/crowns-bridges" onClick={closeMenus} className={`block px-4 py-3 text-[0.9375rem] transition-colors border-b border-[#1B1B1B] ${currentPath === '/services/crowns-bridges' ? 'text-[#C9A961] bg-[#1B1B1B]' : 'text-white hover:text-[#C9A961] hover:bg-[#1B1B1B]'}`}>Crowns & Bridges</Link>
+                    <Link to="/services/veneers" onClick={closeMenus} className={`block px-4 py-3 text-[0.9375rem] transition-colors border-b border-[#1B1B1B] ${currentPath === '/services/veneers' ? 'text-[#C9A961] bg-[#1B1B1B]' : 'text-white hover:text-[#C9A961] hover:bg-[#1B1B1B]'}`}>Porcelain Veneers</Link>
+                    <Link to="/services" onClick={closeMenus} className="block px-4 py-3 text-[0.9375rem] transition-colors text-white hover:text-[#C9A961] hover:bg-[#1B1B1B]">All services</Link>
+                  </div>
+                </div>
+              )}
+            </div>
             <Link to="/about" className={`text-[0.875rem] font-medium transition-colors whitespace-nowrap ${currentPath === '/about' ? 'text-[#C9A961]' : 'text-white hover:text-[#C9A961]'}`}>About</Link>
 
             <div
@@ -128,7 +154,15 @@ export default function Header() {
             </div>
             <nav className="flex flex-col p-6 gap-1 overflow-y-auto" aria-label="Mobile">
               <Link to="/" onClick={closeMenus} className={`py-3 text-[1.125rem] font-medium border-b border-[#2A2A2A] ${currentPath === '/' ? 'text-[#C9A961]' : 'text-white'}`}>Home</Link>
-              <Link to="/services" onClick={closeMenus} className={`py-3 text-[1.125rem] font-medium border-b border-[#2A2A2A] ${currentPath === '/services' ? 'text-[#C9A961]' : 'text-white'}`}>Services</Link>
+              <Link to="/services" onClick={closeMenus} className={`py-3 text-[1.125rem] font-medium ${isServicesActive ? 'text-[#C9A961]' : 'text-white'}`}>Services</Link>
+              <div className="pb-3 border-b border-[#2A2A2A]">
+                <Link to="/services/dental-implants" onClick={closeMenus} className={`block py-2 pl-4 text-[1rem] ${currentPath === '/services/dental-implants' ? 'text-[#C9A961] font-semibold' : 'text-white/90'}`}>Dental Implants</Link>
+                <Link to="/services/all-on-x" onClick={closeMenus} className={`block py-2 pl-4 text-[1rem] ${currentPath === '/services/all-on-x' ? 'text-[#C9A961] font-semibold' : 'text-white/90'}`}>All-on-X Full-Arch Implants</Link>
+                <Link to="/services/dentures" onClick={closeMenus} className={`block py-2 pl-4 text-[1rem] ${currentPath === '/services/dentures' ? 'text-[#C9A961] font-semibold' : 'text-white/90'}`}>Dentures</Link>
+                <Link to="/services/full-mouth-reconstruction" onClick={closeMenus} className={`block py-2 pl-4 text-[1rem] ${currentPath === '/services/full-mouth-reconstruction' ? 'text-[#C9A961] font-semibold' : 'text-white/90'}`}>Full Mouth Reconstruction</Link>
+                <Link to="/services/crowns-bridges" onClick={closeMenus} className={`block py-2 pl-4 text-[1rem] ${currentPath === '/services/crowns-bridges' ? 'text-[#C9A961] font-semibold' : 'text-white/90'}`}>Crowns & Bridges</Link>
+                <Link to="/services/veneers" onClick={closeMenus} className={`block py-2 pl-4 text-[1rem] ${currentPath === '/services/veneers' ? 'text-[#C9A961] font-semibold' : 'text-white/90'}`}>Porcelain Veneers</Link>
+              </div>
               <Link to="/about" onClick={closeMenus} className={`py-3 text-[1.125rem] font-medium border-b border-[#2A2A2A] ${currentPath === '/about' ? 'text-[#C9A961]' : 'text-white'}`}>About Our Specialists</Link>
 
               <div className="py-3 border-b border-[#2A2A2A]">

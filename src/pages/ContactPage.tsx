@@ -1,8 +1,29 @@
 import { useState, useEffect } from 'react';
 import { Phone, ArrowRight, MapPin, Mail, ChevronDown, Send, Clock, Car, Train, CheckCircle2 } from 'lucide-react';
+import { useSearchParams } from 'react-router-dom';
 import { usePageMeta } from '../lib/seo';
 import { FORMSPREE_CONTACT_ENDPOINT, HONEYPOT_FIELD, submitToFormspree } from '../lib/forms';
 import type React from 'react';
+
+/** "What can we help with?" options. Values double as the `?service=` param used by service-page CTAs. */
+export const SERVICE_OPTIONS = [
+  { value: '', label: 'Not sure yet — just exploring' },
+  { value: 'second-opinion', label: 'Specialist Second Opinion Session' },
+  { value: 'dental-implants', label: 'Dental Implants' },
+  { value: 'all-on-x', label: 'All-on-X Full-Arch Implants' },
+  { value: 'veneers', label: 'Porcelain Veneers' },
+  { value: 'crowns-bridges', label: 'Crowns or Bridges' },
+  { value: 'full-mouth-reconstruction', label: 'Full Mouth Reconstruction' },
+  { value: 'dentures', label: 'Dentures' },
+  { value: 'partial-dentures', label: 'Partial Dentures' },
+  { value: 'overdentures', label: 'Implant-Supported Dentures / Overdentures' },
+  { value: 'cosmetic-dentistry', label: 'Cosmetic Dentistry' },
+  { value: 'restorative-dentistry', label: 'Restorative Dentistry' },
+  { value: 'tmj', label: 'TMJ or Bite Issues' },
+  { value: 'sedation', label: 'Sedation Dentistry' },
+  { value: 'emergency', label: 'Urgent / Emergency' },
+  { value: 'other', label: 'Something else' },
+] as const;
 
 export default function ContactPage() {
   usePageMeta('ContactPage');
@@ -17,13 +38,17 @@ export default function ContactPage() {
   const [formStatus, setFormStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
   const [formError, setFormError] = useState(''); // optional validation message shown in the error box
 
+  // ?service=<dropdown value> pre-selects "What can we help with?" and scrolls to the form. No param → unchanged behavior.
+  const [searchParams] = useSearchParams();
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const service = params.get('service');
-    if (service) {
+    const service = searchParams.get('service');
+    if (!service) return;
+    if (SERVICE_OPTIONS.some((o) => o.value === service)) {
       setFormData(prev => ({ ...prev, service }));
     }
-  }, []);
+    const el = document.getElementById('form');
+    if (el) requestAnimationFrame(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  }, [searchParams]);
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -123,7 +148,7 @@ export default function ContactPage() {
 
       {/* SECTION 2: FORM + WHAT HAPPENS NEXT */}
       <section id="contact-form" className="bg-white py-16 md:py-20">
-        <div className="max-w-[1200px] mx-auto px-4 md:px-6">
+        <div id="form" className="max-w-[1200px] mx-auto px-4 md:px-6 scroll-mt-24">
           <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-10 lg:gap-12 items-start">
             
             {/* LEFT COLUMN — Form */}
@@ -215,18 +240,9 @@ export default function ContactPage() {
                           onChange={handleFormChange} 
                           className="w-full px-4 py-3 bg-white border border-[#E7E2D8] rounded-lg text-[1rem] text-[#1B1B1B] focus:outline-none focus:border-[#0A0A0A] focus:ring-2 focus:ring-[#C9A961]/40 transition appearance-none bg-[url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'12\' height=\'8\' viewBox=\'0 0 12 8\' fill=\'none\'><path d=\'M1 1.5L6 6.5L11 1.5\' stroke=\'%23C9A961\' stroke-width=\'2\' stroke-linecap=\'round\'/></svg>')] bg-no-repeat bg-[right_1rem_center] pr-12"
                         >
-                          <option value="">Not sure yet — just exploring</option>
-                          <option value="second-opinion">Specialist Second Opinion Session</option>
-                          <option value="dental-implants">Dental Implants</option>
-                          <option value="veneers">Porcelain Veneers</option>
-                          <option value="crowns-bridges">Crowns or Bridges</option>
-                          <option value="full-mouth-reconstruction">Full Mouth Reconstruction</option>
-                          <option value="cosmetic-dentistry">Cosmetic Dentistry</option>
-                          <option value="restorative-dentistry">Restorative Dentistry</option>
-                          <option value="tmj">TMJ or Bite Issues</option>
-                          <option value="sedation">Sedation Dentistry</option>
-                          <option value="emergency">Urgent / Emergency</option>
-                          <option value="other">Something else</option>
+                          {SERVICE_OPTIONS.map((o) => (
+                            <option key={o.value} value={o.value}>{o.label}</option>
+                          ))}
                         </select>
                       </div>
 

@@ -37,32 +37,27 @@
     },
     {
       "source": "/full-mouth-reconstruction/",
-      "destination": "/services#full-mouth-reconstruction",
+      "destination": "/services/full-mouth-reconstruction",
       "permanent": true
     },
     {
       "source": "/full-mouth-reconstruction",
-      "destination": "/services#full-mouth-reconstruction",
+      "destination": "/services/full-mouth-reconstruction",
       "permanent": true
     },
     {
       "source": "/dental-implants/",
-      "destination": "/services#dental-implants",
+      "destination": "/services/dental-implants",
       "permanent": true
     },
     {
       "source": "/dental-implants",
-      "destination": "/services#dental-implants",
+      "destination": "/services/dental-implants",
       "permanent": true
     },
     {
       "source": "/services/dentures/",
-      "destination": "/services#dentures",
-      "permanent": true
-    },
-    {
-      "source": "/services/dentures",
-      "destination": "/services#dentures",
+      "destination": "/services/dentures",
       "permanent": true
     },
     {
@@ -77,22 +72,22 @@
     },
     {
       "source": "/services/cosmetic-dentistry/",
-      "destination": "/services#cosmetic-dentistry",
+      "destination": "/services/veneers",
       "permanent": true
     },
     {
       "source": "/services/cosmetic-dentistry",
-      "destination": "/services#cosmetic-dentistry",
+      "destination": "/services/veneers",
       "permanent": true
     },
     {
       "source": "/services/restorative-dentistry/",
-      "destination": "/services#restorative",
+      "destination": "/services/full-mouth-reconstruction",
       "permanent": true
     },
     {
       "source": "/services/restorative-dentistry",
-      "destination": "/services#restorative",
+      "destination": "/services/full-mouth-reconstruction",
       "permanent": true
     },
     {
@@ -137,12 +132,12 @@
     },
     {
       "source": "/services/same-day-crowns/",
-      "destination": "/services#crowns-bridges",
+      "destination": "/services/crowns-bridges",
       "permanent": true
     },
     {
       "source": "/services/same-day-crowns",
-      "destination": "/services#crowns-bridges",
+      "destination": "/services/crowns-bridges",
       "permanent": true
     },
     {
@@ -157,12 +152,12 @@
     },
     {
       "source": "/services/smile-makeovers/",
-      "destination": "/services#cosmetic-dentistry",
+      "destination": "/services/veneers",
       "permanent": true
     },
     {
       "source": "/services/smile-makeovers",
-      "destination": "/services#cosmetic-dentistry",
+      "destination": "/services/veneers",
       "permanent": true
     },
     {
@@ -396,6 +391,31 @@
       "permanent": true
     },
     {
+      "source": "/services/dental-implants/",
+      "destination": "/services/dental-implants",
+      "permanent": true
+    },
+    {
+      "source": "/services/all-on-x/",
+      "destination": "/services/all-on-x",
+      "permanent": true
+    },
+    {
+      "source": "/services/full-mouth-reconstruction/",
+      "destination": "/services/full-mouth-reconstruction",
+      "permanent": true
+    },
+    {
+      "source": "/services/crowns-bridges/",
+      "destination": "/services/crowns-bridges",
+      "permanent": true
+    },
+    {
+      "source": "/services/veneers/",
+      "destination": "/services/veneers",
+      "permanent": true
+    },
+    {
       "source": "/wp-content/:path*",
       "destination": "/",
       "permanent": true
@@ -428,11 +448,6 @@
     {
       "source": "/:path*/feed/",
       "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/services/:slug+",
-      "destination": "/services",
       "permanent": true
     }
   ],

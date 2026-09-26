@@ -1,7 +1,10 @@
 // Generated from each source project's index.html. Home's JSON-LD stays in /index.html.
 export interface PageMeta { title: string; description: string; jsonLd?: string }
 
+import { SERVICE_PAGE_META } from '../data/services';
+
 export const PAGE_META: Record<string, PageMeta> = {
+  ...SERVICE_PAGE_META,
   "HomePage": {
     "title": "Prosthodontist in Sheepshead Bay, Brooklyn | World Smiles Prosthodontics",
     "description": "NYU-trained prosthodontic specialist in Sheepshead Bay treating implants, full-mouth reconstruction, and cosmetic dentistry. Bring your prior treatment plans — written second opinion, $147 credited toward treatment."
