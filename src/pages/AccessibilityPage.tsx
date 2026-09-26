@@ -167,7 +167,7 @@ export default function AccessibilityPage() {
                 <li>Alternative scheduling to accommodate mobility, sensory, or cognitive needs</li>
                 <li>Permission for a support person to accompany you in the operatory</li>
                 <li>Adjustments to clinical procedures where reasonable and clinically appropriate</li>
-                <li>Translation assistance — Dr. Furman speaks Russian fluently and can conduct the consultation in Russian if preferred</li>
+                <li>Translation assistance — the doctor speaks Russian fluently and can conduct the consultation in Russian if preferred</li>
               </ul>
               <p>To request an accommodation, please contact us at least one week before your appointment when possible. Some accommodations — such as arranging an interpreter — require more advance notice than others, and we'll be honest with you about what we can and cannot arrange on short timelines.</p>
             </div>

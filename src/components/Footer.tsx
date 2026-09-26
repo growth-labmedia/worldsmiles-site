@@ -9,7 +9,7 @@ export default function Footer() {
   return (
       <footer className="bg-[#0A0A0A] text-[#F7F3EC]">
         <div className="max-w-[1200px] mx-auto px-4 md:px-6 py-14 md:py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
 
             {/* COL 1: Brand + NAP */}
             <div>
@@ -57,6 +57,20 @@ export default function Footer() {
                 <div className="flex justify-between gap-3"><dt>Saturday</dt><dd>Closed</dd></div>
                 <div className="flex justify-between gap-3"><dt>Sunday</dt><dd>Closed</dd></div>
               </dl>
+            </div>
+
+            {/* COL: Services */}
+            <div>
+              <h3 className="text-[0.8125rem] uppercase tracking-[0.14em] font-semibold text-[#C9A961] mb-5">Services</h3>
+              <ul className="text-[0.9375rem] text-[#F7F3EC]/85 space-y-2.5">
+                <li><Link to="/services/dental-implants" className={`rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A961] ${currentPath === '/services/dental-implants' ? 'text-white font-medium' : 'hover:text-white'}`}>Dental Implants</Link></li>
+                <li><Link to="/services/all-on-x" className={`rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A961] ${currentPath === '/services/all-on-x' ? 'text-white font-medium' : 'hover:text-white'}`}>All-on-X Full-Arch Implants</Link></li>
+                <li><Link to="/services/dentures" className={`rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A961] ${currentPath === '/services/dentures' ? 'text-white font-medium' : 'hover:text-white'}`}>Dentures</Link></li>
+                <li><Link to="/services/full-mouth-reconstruction" className={`rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A961] ${currentPath === '/services/full-mouth-reconstruction' ? 'text-white font-medium' : 'hover:text-white'}`}>Full Mouth Reconstruction</Link></li>
+                <li><Link to="/services/crowns-bridges" className={`rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A961] ${currentPath === '/services/crowns-bridges' ? 'text-white font-medium' : 'hover:text-white'}`}>Crowns & Bridges</Link></li>
+                <li><Link to="/services/veneers" className={`rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A961] ${currentPath === '/services/veneers' ? 'text-white font-medium' : 'hover:text-white'}`}>Porcelain Veneers</Link></li>
+                <li><Link to="/services" className="rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A961] hover:text-white">All services</Link></li>
+              </ul>
             </div>
 
             {/* COL 3: Quick Links */}

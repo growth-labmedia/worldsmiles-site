@@ -108,6 +108,9 @@ export default function ServicesPage() {
               </ul>
             </div>
           </div>
+          <div className="mt-8">
+            <Link to="/services/full-mouth-reconstruction" className="inline-flex items-center gap-1.5 text-[#0A0A0A] hover:text-[#A8893F] text-[0.9375rem] font-semibold min-h-[48px] group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A961] rounded">Learn more about Full Mouth Reconstruction <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" strokeWidth={1.75} /></Link>
+          </div>
         </div>
       </section>
 
@@ -204,6 +207,9 @@ export default function ServicesPage() {
               </ul>
             </div>
           </div>
+          <div className="mt-8">
+            <Link to="/services/dental-implants" className="inline-flex items-center gap-1.5 text-[#0A0A0A] hover:text-[#A8893F] text-[0.9375rem] font-semibold min-h-[48px] group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A961] rounded">Learn more about Dental Implants <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" strokeWidth={1.75} /></Link>
+          </div>
         </div>
       </section>
 
@@ -268,6 +274,9 @@ export default function ServicesPage() {
               </ul>
             </div>
           </div>
+          <div className="mt-8">
+            <Link to="/services/veneers" className="inline-flex items-center gap-1.5 text-[#0A0A0A] hover:text-[#A8893F] text-[0.9375rem] font-semibold min-h-[48px] group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A961] rounded">Learn more about Porcelain Veneers <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" strokeWidth={1.75} /></Link>
+          </div>
         </div>
       </section>
 
@@ -306,6 +315,9 @@ export default function ServicesPage() {
                 </li>
               </ul>
             </div>
+          </div>
+          <div className="mt-8">
+            <Link to="/services/crowns-bridges" className="inline-flex items-center gap-1.5 text-[#0A0A0A] hover:text-[#A8893F] text-[0.9375rem] font-semibold min-h-[48px] group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A961] rounded">Learn more about Crowns & Bridges <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" strokeWidth={1.75} /></Link>
           </div>
         </div>
       </section>
@@ -371,6 +383,9 @@ export default function ServicesPage() {
               </ul>
             </div>
           </div>
+          <div className="mt-8">
+            <Link to="/services/dentures" className="inline-flex items-center gap-1.5 text-[#0A0A0A] hover:text-[#A8893F] text-[0.9375rem] font-semibold min-h-[48px] group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A961] rounded">Learn more about Dentures <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" strokeWidth={1.75} /></Link>
+          </div>
         </div>
       </section>
 
@@ -431,6 +446,9 @@ export default function ServicesPage() {
               </ul>
             </div>
           </div>
+          <div className="mt-8">
+            <Link to="/services/dentures" className="inline-flex items-center gap-1.5 text-[#0A0A0A] hover:text-[#A8893F] text-[0.9375rem] font-semibold min-h-[48px] group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A961] rounded">Learn more about Dentures <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" strokeWidth={1.75} /></Link>
+          </div>
         </div>
       </section>
 
@@ -482,6 +500,9 @@ export default function ServicesPage() {
               </ul>
             </div>
           </div>
+          <div className="mt-8">
+            <Link to="/services/all-on-x" className="inline-flex items-center gap-1.5 text-[#0A0A0A] hover:text-[#A8893F] text-[0.9375rem] font-semibold min-h-[48px] group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A961] rounded">Learn more about All-on-X Full-Arch Implants <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" strokeWidth={1.75} /></Link>
+          </div>
         </div>
       </section>
 
@@ -521,6 +542,9 @@ export default function ServicesPage() {
               </ul>
             </div>
           </div>
+          <div className="mt-8">
+            <Link to="/services/veneers" className="inline-flex items-center gap-1.5 text-[#0A0A0A] hover:text-[#A8893F] text-[0.9375rem] font-semibold min-h-[48px] group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A961] rounded">Learn more about Porcelain Veneers <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" strokeWidth={1.75} /></Link>
+          </div>
         </div>
       </section>
 
@@ -559,6 +583,9 @@ export default function ServicesPage() {
                 </li>
               </ul>
             </div>
+          </div>
+          <div className="mt-8">
+            <Link to="/services/full-mouth-reconstruction" className="inline-flex items-center gap-1.5 text-[#0A0A0A] hover:text-[#A8893F] text-[0.9375rem] font-semibold min-h-[48px] group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A961] rounded">Learn more about Full Mouth Reconstruction <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" strokeWidth={1.75} /></Link>
           </div>
         </div>
       </section>
@@ -853,7 +880,7 @@ export default function ServicesPage() {
                 <ChevronDown className="w-5 h-5 text-[#C9A961] shrink-0 transition-transform group-open:rotate-180" />
               </summary>
               <div className="px-5 md:px-6 pb-5 md:pb-6 text-[#5C5C5C] leading-[1.65] text-[1rem]">
-                We see adult patients across the full range described on this page. If you're considering bringing a parent, spouse, or adult child — or if you're seeing us yourself and want to bring a parent for a separate appointment — we treat each person as their own case. Dr. Furman speaks Russian, which several of our multigenerational families have told us was the gating reason their parents agreed to be seen at all.
+                We see adult patients across the full range described on this page. If you're considering bringing a parent, spouse, or adult child — or if you're seeing us yourself and want to bring a parent for a separate appointment — we treat each person as their own case. The doctor speaks Russian, which several of our multigenerational families have told us was the gating reason their parents agreed to be seen at all.
               </div>
             </details>
           </div>

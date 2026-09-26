@@ -83,7 +83,7 @@ export default function FAQPage() {
               />
               <AccordionItem 
                 question="What are your office hours?" 
-                answer="We're open Monday, Wednesday, and Friday from 10am to 5pm. We're closed Tuesdays, Thursdays, and weekends. The limited schedule allows Dr. Furman to give each patient longer appointments and more focused attention than a typical five-day-a-week practice." 
+                answer="We're open Monday, Wednesday, and Friday from 10am to 5pm. We're closed Tuesdays, Thursdays, and weekends. The limited schedule allows the doctor to give each patient longer appointments and more focused attention than a typical five-day-a-week practice." 
               />
               <AccordionItem 
                 question="Are you accepting new patients?" 
@@ -94,7 +94,7 @@ export default function FAQPage() {
                 answer="No — you can book directly with us. Some insurance plans do require a referral for them to cover specialist visits, so check with your plan if reimbursement matters to you. Either way, we're happy to see you." 
               />
               <AccordionItem 
-                question="Does Dr. Furman speak Russian?" 
+                question="Does the doctor speak Russian?" 
                 answer="Yes, fluently. If you'd prefer the consultation in Russian, or if you're bringing a parent or grandparent who would, just let us know when you call. We'll switch." 
               />
               <AccordionItem 
@@ -173,7 +173,7 @@ export default function FAQPage() {
               />
               <AccordionItem 
                 question="Do you offer second opinions on treatment plans from other dentists?" 
-                answer="Yes — that's specifically what our Specialist Second Opinion Session is built for. Bring whatever you have — quotes, X-rays, written plans — and Dr. Furman reviews them in the context of his own diagnostic workup. You leave with one coherent specialist read and a written plan of your own." 
+                answer="Yes — that's specifically what our Specialist Second Opinion Session is built for. Bring whatever you have — quotes, X-rays, written plans — and the doctor reviews them in the context of his own diagnostic workup. You leave with one coherent specialist read and a written plan of your own." 
               />
               <AccordionItem 
                 question="How long does it take to get an appointment?" 
@@ -325,11 +325,11 @@ export default function FAQPage() {
             <div className="space-y-3">
               <AccordionItem 
                 question="What is the Specialist Second Opinion Session?" 
-                answer="A 45–60 minute consultation with Dr. Furman for patients who've received treatment plans elsewhere and want a specialist's read. Includes a 3D scan, 40-point bite check, review of your prior X-rays or quotes, a written plan with locked-in pricing, and a smile preview. $147, credited toward treatment if you start within 90 days." 
+                answer="A 45–60 minute consultation with the prosthodontist for patients who've received treatment plans elsewhere and want a specialist's read. Includes a 3D scan, 40-point bite check, review of your prior X-rays or quotes, a written plan with locked-in pricing, and a smile preview. $147, credited toward treatment if you start within 90 days." 
               />
               <AccordionItem 
                 question="What's included in the $147?" 
-                answer="A 45–60 minute consultation with Dr. Furman, a full 3D scan, a 40-point bite check, review of your prior X-rays or treatment plans, a written plan with locked-in pricing yours to keep, and a smile preview. Retail value over $1,675 — packaged at $147 because most patients who come for a specialist opinion start treatment with us." 
+                answer="A 45–60 minute consultation with the prosthodontist, a full 3D scan, a 40-point bite check, review of your prior X-rays or treatment plans, a written plan with locked-in pricing yours to keep, and a smile preview. Retail value over $1,675 — packaged at $147 because most patients who come for a specialist opinion start treatment with us." 
               />
               <AccordionItem 
                 question="Will you talk to my previous dentist?" 
@@ -345,7 +345,7 @@ export default function FAQPage() {
               />
               <AccordionItem 
                 question="Can I bring treatment plans I got from another dentist?" 
-                answer="Yes. Bringing prior plans is one of the most useful things you can do. Dr. Furman reviews them as part of the consultation and points out where his specialist read agrees with the other plan, where it differs, and why." 
+                answer="Yes. Bringing prior plans is one of the most useful things you can do. The doctor reviews them as part of the consultation and points out where his specialist read agrees with the other plan, where it differs, and why." 
               />
             </div>
           </section>

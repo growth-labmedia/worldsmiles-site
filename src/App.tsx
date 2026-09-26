@@ -19,6 +19,7 @@ import AccessibilityPage from './pages/AccessibilityPage';
 import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
 import NotFoundPage from './pages/NotFoundPage';
+import ServicePage from './pages/ServicePage';
 import { trackPageView } from './lib/analytics';
 
 // On route change: scroll to top (or to the hash anchor), fire a GA4 page_view, and strip WordPress-era ?p= query strings.
@@ -31,7 +32,12 @@ function RouteEffects() {
   useEffect(() => {
     if (hash) {
       const el = document.getElementById(hash.slice(1));
-      if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Lazy images above the target shift the layout after the first scroll; re-align once they settle.
+        const t = setTimeout(() => el.scrollIntoView({ behavior: 'instant' as ScrollBehavior, block: 'start' }), 900);
+        return () => clearTimeout(t);
+      }
     }
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
   }, [pathname, hash]);
@@ -52,6 +58,7 @@ export function AppRoutes() {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="services" element={<ServicesPage />} />
+          <Route path="services/:slug" element={<ServicePage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="before-after" element={<BeforeAfterPage />} />
           <Route path="reviews" element={<ReviewsPage />} />
